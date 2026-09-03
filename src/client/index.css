@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #12221b;
+  background: #f5f7f4;
+  font-family: Inter, "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --scrollbar: #a9b5ae;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--scrollbar) transparent;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button,
+a,
+label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:disabled {
+  transform: none !important;
+}
+
+::selection {
+  background: #b7e9cd;
+  color: #09261a;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #e8ede9;
+}
+
+.skeleton::after {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.65), transparent);
+  animation: shimmer 1.45s infinite;
+  content: "";
+}
+
+.hero-orb {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(2px);
+}
+
+.hero-orb-one {
+  right: -8rem;
+  top: -10rem;
+  width: 34rem;
+  height: 34rem;
+  background: radial-gradient(circle, rgb(76 187 128 / 0.3), transparent 68%);
+}
+
+.hero-orb-two {
+  bottom: -18rem;
+  left: 36%;
+  width: 38rem;
+  height: 38rem;
+  background: radial-gradient(circle, rgb(133 214 170 / 0.13), transparent 68%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
