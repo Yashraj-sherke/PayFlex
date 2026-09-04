@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ChevronRight,
   ChevronDown,
@@ -55,10 +55,21 @@ export function ProductExperience({ product }: ProductExperienceProps) {
   }, [product.variants]);
 
   const selectedVariant = useMemo(
-    () => product.variants.find((v) => v.id === selectedVariantId),
+    () => product.variants.find((v) => v.id === selectedVariantId) ?? product.variants[0],
     [product.variants, selectedVariantId],
   );
   const selectedPlan = plans.find((p) => p.id === selectedPlanId);
+
+  useEffect(() => {
+    if (product.variants[0]?.id) {
+      setSelectedVariantId(product.variants[0].id);
+      setActiveImageIndex(0);
+      setPlans(product.emiPlans);
+      setSelectedPlanId(preferredPlan(product.emiPlans));
+    }
+  }, [product.slug]);
+
+  const currentImageUrl = selectedVariant?.imageUrl || galleryItems[activeImageIndex]?.url;
 
   if (!selectedVariant) {
     return (
@@ -145,8 +156,8 @@ export function ProductExperience({ product }: ProductExperienceProps) {
                     if (matchingVariant) void selectVariant(matchingVariant.id);
                   }}
                   aria-label={item.label}
-                  aria-pressed={i === activeImageIndex}
-                  className={`pf-thumb transition-all ${i === activeImageIndex ? 'pf-thumb-active ring-2 ring-brand-500 scale-105' : 'opacity-80 hover:opacity-100'}`}
+                  aria-pressed={item.url === currentImageUrl}
+                  className={`pf-thumb transition-all ${item.url === currentImageUrl ? 'pf-thumb-active ring-2 ring-brand-500 scale-105' : 'opacity-80 hover:opacity-100'}`}
                 >
                   <ProductImage src={item.url} alt={item.label} className="h-full w-full object-contain p-0.5" />
                 </button>
@@ -176,8 +187,8 @@ export function ProductExperience({ product }: ProductExperienceProps) {
               )}
 
               <ProductImage
-                key={galleryItems[activeImageIndex]?.url ?? selectedVariant.imageUrl}
-                src={galleryItems[activeImageIndex]?.url ?? selectedVariant.imageUrl}
+                key={currentImageUrl}
+                src={currentImageUrl}
                 alt={`${product.name} in ${selectedVariant.color}`}
                 className="aspect-square w-full animate-fade-up object-contain p-6 sm:p-10"
               />
@@ -196,8 +207,8 @@ export function ProductExperience({ product }: ProductExperienceProps) {
                   if (matchingVariant) void selectVariant(matchingVariant.id);
                 }}
                 aria-label={item.label}
-                aria-pressed={i === activeImageIndex}
-                className={`pf-thumb ${i === activeImageIndex ? 'pf-thumb-active ring-2 ring-brand-500' : 'opacity-80'}`}
+                aria-pressed={item.url === currentImageUrl}
+                className={`pf-thumb ${item.url === currentImageUrl ? 'pf-thumb-active ring-2 ring-brand-500' : 'opacity-80'}`}
               >
                 <ProductImage src={item.url} alt={item.label} className="h-full w-full object-contain p-0.5" />
               </button>

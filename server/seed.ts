@@ -60,9 +60,9 @@ const products = [
     mrp: 149_900,
     sellerName: 'Balaji Infocom',
     variants: [
-      { color: 'Cosmic Orange',    colorHex: '#E6632B', storage: '256GB', finish: 'Satin titanium', imageUrl: '/products/iphone-orange.png',        priceAdjustment: 0,      inventory: 14 },
-      { color: 'Desert Titanium',  colorHex: '#C39B78', storage: '512GB', finish: 'Satin titanium', imageUrl: '/products/iphone-orange-front.png',  priceAdjustment: 15_000, inventory: 8  },
-      { color: 'Pro Camera Studio',colorHex: '#1E293B', storage: '1TB',   finish: 'Satin titanium', imageUrl: '/products/iphone-orange-camera.png', priceAdjustment: 35_000, inventory: 6  },
+      { color: 'Cosmic Orange',    colorHex: '#E6632B', storage: '256GB', finish: 'Satin titanium', imageUrl: '/products/iphone-orange.png', priceAdjustment: 0,      inventory: 14 },
+      { color: 'Navy Titanium',    colorHex: '#252B3B', storage: '512GB', finish: 'Satin titanium', imageUrl: '/products/iphone-navy.png',   priceAdjustment: 15_000, inventory: 8  },
+      { color: 'Silver Titanium',  colorHex: '#E2E4E8', storage: '1TB',   finish: 'Satin titanium', imageUrl: '/products/iphone-silver.png', priceAdjustment: 35_000, inventory: 6  },
     ],
     emiPlans: makePlans(5_000),
     specifications: [
@@ -268,7 +268,7 @@ const products = [
     sellerName: 'Apple Premium Reseller',
     variants: [
       { color: 'Starlight',  colorHex: '#f1ede4', storage: '128GB', finish: 'Recycled aluminum', imageUrl: '/products/ipad-air-front.jpg', priceAdjustment: 0, inventory: 18 },
-      { color: 'Space Gray', colorHex: '#4b5563', storage: '256GB', finish: 'Recycled aluminum', imageUrl: '/products/ipad-air-angle.jpg', priceAdjustment: 10_000, inventory: 14 },
+      { color: 'Space Gray', colorHex: '#4b5563', storage: '256GB', finish: 'Recycled aluminum', imageUrl: '/products/ipad-air-gray.png', priceAdjustment: 10_000, inventory: 14 },
     ],
     emiPlans: makePlans(2_500),
     specifications: [
