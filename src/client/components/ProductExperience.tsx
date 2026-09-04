@@ -50,21 +50,9 @@ export function ProductExperience({ product }: ProductExperienceProps) {
   const [expandedPolicy, setExpandedPolicy] = useState<number | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  const isIPhone = product.slug === 'iphone-17-pro';
-  const iphoneGallery = useMemo(
-    () => [
-      { url: '/products/iphone-orange.png', label: 'Cosmic Orange · Front & Back' },
-      { url: '/products/iphone-orange-front.png', label: 'Super Retina XDR Display' },
-      { url: '/products/iphone-orange-camera.png', label: 'Pro Camera System' },
-      { url: '/products/iphone-orange-side.png', label: 'Sculpted Titanium Edge' },
-    ],
-    [],
-  );
-
   const galleryItems = useMemo(() => {
-    if (isIPhone) return iphoneGallery;
     return product.variants.map((v) => ({ url: v.imageUrl, label: v.color }));
-  }, [isIPhone, iphoneGallery, product.variants]);
+  }, [product.variants]);
 
   const selectedVariant = useMemo(
     () => product.variants.find((v) => v.id === selectedVariantId),
