@@ -1,60 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <!-- Back handle -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="none">
+  <!-- Back Handle -->
   <path
-    d="M 50 38 C 46 20 50 9 60 8 C 68 7 73 18 73 36"
-    stroke="#23494e"
-    stroke-width="4"
-    stroke-linecap="round"
-    fill="none"
-  />
-  
-  <!-- Front handle -->
-  <path
-    d="M 39 41 C 34 22 39 10 50 9 C 59 9 64 21 63 39"
-    stroke="#285358"
-    stroke-width="4"
+    d="M 52 46 C 45 18 52 8 66 8 C 77 8 83 20 83 41"
+    stroke="#22474b"
+    stroke-width="5"
     stroke-linecap="round"
     fill="none"
   />
 
-  <!-- 3D Side shadow panel -->
-  <polygon
-    points="74,37 87,74 65,85"
-    fill="#1a383c"
+  <!-- Front Handle -->
+  <path
+    d="M 39 49 C 33 22 40 11 53 11 C 65 11 70 23 70 44"
+    stroke="#275055"
+    stroke-width="5"
+    stroke-linecap="round"
+    fill="none"
   />
 
-  <!-- Bag front panel -->
+  <!-- 3D Side Shadow Face -->
   <polygon
-    points="38,41 74,37 65,85 25,75"
-    fill="#264e52"
+    points="84,41 101,92 73,107"
+    fill="#1a373b"
   />
 
-  <!-- Rim highlight -->
+  <!-- Front Bag Face -->
+  <polygon
+    points="28,49 84,41 73,107 14,94"
+    fill="#264e53"
+  />
+
+  <!-- Top Rim Highlight -->
   <line
-    x1="38"
-    y1="41"
-    x2="74"
-    y2="37"
-    stroke="#33676c"
-    stroke-width="2"
+    x1="28"
+    y1="49"
+    x2="84"
+    y2="41"
+    stroke="#396c72"
+    stroke-width="2.5"
     stroke-linecap="round"
   />
 
-  <!-- Brush Stroke 1 (Top - Warm Cream) -->
+  <!-- 3 Bold Brush Strokes -->
   <path
-    d="M 38 54 Q 50 53 64 52 C 68 51.5 73 50.5 75 51.5 C 72 53 69 53.5 63 54.5 Q 49 55.5 38 56.5 C 36.5 56.5 36.5 54 38 54 Z"
-    fill="#faebd7"
+    d="M 28 62 C 34 60.5 50 59 66 57.5 C 72 57 76 56 79 57 C 77 58.5 73 59.5 66 60.5 C 50 62.5 35 64 28 65 Z"
+    fill="#faecd6"
   />
+  <path d="M 77 56.5 C 80 56 83 55.5 85 55.8 C 83 56.8 80 57.2 78 57.5 Z" fill="#faecd6" />
 
-  <!-- Brush Stroke 2 (Middle - Warm Orange) -->
   <path
-    d="M 37 59.5 Q 50 58.5 64 57.5 C 69 57 74 56 76 57 C 73 58.5 70 59 63 60.2 Q 48 61.2 37 62 C 35.5 62 35.5 59.5 37 59.5 Z"
+    d="M 27 68 C 33 66.5 49 65 65 63.5 C 72 63 77 62 80 63 C 78 64.8 73 66 65 67 C 49 69 34 70.5 27 71.5 Z"
     fill="#fca566"
   />
+  <path d="M 78 62.5 C 81 62 84 61.5 86 62 C 84 63 80 63.5 78 63.8 Z" fill="#fca566" />
 
-  <!-- Brush Stroke 3 (Bottom - Coral Red) -->
   <path
-    d="M 36 65 Q 49 64 61 63 C 66 62.5 71 61.8 73 63 C 70 64.5 66 65 59 66.2 Q 47 67.2 36 68 C 34.5 68 34.5 65 36 65 Z"
+    d="M 25 75 C 32 73.5 48 72 63 70.5 C 70 70 75 69 78 70.2 C 76 72 71 73 63 74 C 47 76 33 77.5 25 78.5 Z"
     fill="#ea583b"
   />
+  <path d="M 76 69.5 C 79 69 82 68.5 84 69 C 82 70 78 70.5 76 70.8 Z" fill="#ea583b" />
 </svg>

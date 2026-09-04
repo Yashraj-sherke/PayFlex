@@ -1,66 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" fill="none">
-  <g transform="translate(10, 0)">
-    <!-- Back handle -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 90" fill="none">
+  <g transform="translate(6, -4)">
+    <!-- Back Handle -->
     <path
-      d="M 46 32 C 43 16 47 7 55 6 C 62 5 66 14 66 30"
-      stroke="#23494e"
-      stroke-width="3"
-      stroke-linecap="round"
-      fill="none"
-    />
-    
-    <!-- Front handle -->
-    <path
-      d="M 37 35 C 33 18 37 8 46 7 C 54 7 58 17 58 33"
-      stroke="#285358"
-      stroke-width="3"
+      d="M 48 40 C 42 16 48 7 60 7 C 70 7 75 17 75 36"
+      stroke="#22474b"
+      stroke-width="4.2"
       stroke-linecap="round"
       fill="none"
     />
 
-    <!-- 3D Side shadow panel -->
-    <polygon
-      points="67,31 78,63 59,73"
-      fill="#1a383c"
+    <!-- Front Handle -->
+    <path
+      d="M 36 43 C 30 19 37 9 48 9 C 59 9 63 20 63 38"
+      stroke="#275055"
+      stroke-width="4.2"
+      stroke-linecap="round"
+      fill="none"
     />
 
-    <!-- Bag front panel -->
+    <!-- 3D Side Shadow Face -->
     <polygon
-      points="36,35 67,31 59,73 24,64"
-      fill="#264e52"
+      points="76,36 91,82 66,95"
+      fill="#1a373b"
     />
 
-    <!-- Rim highlight -->
+    <!-- Front Bag Face -->
+    <polygon
+      points="26,43 76,36 66,95 13,83"
+      fill="#264e53"
+    />
+
+    <!-- Top Rim Highlight -->
     <line
-      x1="36"
-      y1="35"
-      x2="67"
-      y2="31"
-      stroke="#33676c"
-      stroke-width="1.5"
+      x1="26"
+      y1="43"
+      x2="76"
+      y2="36"
+      stroke="#396c72"
+      stroke-width="2"
       stroke-linecap="round"
     />
 
-    <!-- Brush Stroke 1 -->
+    <!-- 3 Bold Brush Strokes -->
     <path
-      d="M 35 46 Q 45 45 57 44 C 61 43.5 65 42.5 67 43.5 C 64 45 61 45.5 56 46.5 Q 44 47.5 35 48.5 Z"
-      fill="#faebd7"
+      d="M 26 54 C 31 53 45 52 59 50.5 C 64 50 68 49 71 50 C 69 51.5 65 52.2 59 53.2 C 45 55 32 56 26 57 Z"
+      fill="#faecd6"
     />
+    <path d="M 69 49.5 C 72 49 75 48.5 77 49 C 75 49.8 72 50.2 70 50.5 Z" fill="#faecd6" />
 
-    <!-- Brush Stroke 2 -->
     <path
-      d="M 34 51 Q 45 50 57 49 C 61 48.5 65 47.8 67 48.8 C 64 50 61 50.8 55 51.8 Q 43 52.8 34 53.5 Z"
+      d="M 25 59 C 30 58 44 57 58 55.5 C 64 55 69 54 72 55 C 70 56.5 65 57.5 58 58.5 C 44 60 31 61.5 25 62.5 Z"
       fill="#fca566"
     />
+    <path d="M 70 54.5 C 73 54 76 53.5 78 54 C 76 55 72 55.2 70 55.5 Z" fill="#fca566" />
 
-    <!-- Brush Stroke 3 -->
     <path
-      d="M 33 56 Q 44 55 55 54 C 59 53.5 63 52.8 65 54 C 62 55.5 58 56 52 57 Q 42 58 33 59 Z"
+      d="M 23 65 C 29 64 43 63 56 61.5 C 62 61 67 60 70 61.2 C 68 62.8 63 63.8 56 64.8 C 42 66.5 30 67.8 23 68.8 Z"
       fill="#ea583b"
     />
+    <path d="M 68 60.5 C 71 60 74 59.5 76 60 C 74 61 70 61.2 68 61.5 Z" fill="#ea583b" />
   </g>
 
   <!-- Typography -->
-  <text x="102" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="900" fill="#111827" letter-spacing="-1">Pay</text>
-  <text x="156" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="900" fill="#f06449" letter-spacing="-1">Flex</text>
+  <text x="108" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="900" fill="#0f172a" letter-spacing="-1">Pay</text>
+  <text x="166" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="900" fill="#f06449" letter-spacing="-1">Flex</text>
 </svg>
