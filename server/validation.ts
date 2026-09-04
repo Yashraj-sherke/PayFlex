@@ -6,7 +6,10 @@ export const slugSchema = z
   .string()
   .min(2)
   .max(100)
-  .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Use a valid product slug.');
+  .refine(
+    (val) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(val) || objectIdRegex.test(val),
+    { message: 'Use a valid product slug or ID.' },
+  );
 
 export const emiPlanQuerySchema = z.object({
   variantId: z.string().regex(objectIdRegex, 'Invalid variant ID.').optional(),

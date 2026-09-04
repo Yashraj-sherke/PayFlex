@@ -61,6 +61,20 @@ describe('product API', () => {
     expect(response.body.data.name).toBe('iPhone 17 Pro');
   });
 
+  it('returns a product by its MongoDB ObjectId', async () => {
+    const service = fakeService();
+    service.getProduct = vi.fn().mockImplementation((idOrSlug: string) =>
+      Promise.resolve(idOrSlug === summary.id ? detail : null),
+    );
+
+    const response = await request(createApp({ catalogService: service })).get(
+      `/api/products/${summary.id}`,
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.body.data.name).toBe('iPhone 17 Pro');
+  });
+
   it('returns a safe 404 for an unknown product', async () => {
     const response = await request(createApp({ catalogService: fakeService() })).get(
       '/api/products/not-a-real-product',
