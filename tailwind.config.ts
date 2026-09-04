@@ -79,8 +79,8 @@ export default {
         '5xl': '2.5rem',
       },
       fontFamily: {
-        sans:    ['Inter', 'Avenir Next', 'Segoe UI', 'Helvetica Neue', 'sans-serif'],
-        display: ['Manrope', 'Avenir Next', 'Segoe UI', 'sans-serif'],
+        sans:    ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       keyframes: {
         'fade-up': {
