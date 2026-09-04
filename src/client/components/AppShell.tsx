@@ -1,10 +1,10 @@
-import { Search, Store } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { Link, Outlet, useNavigate, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { PayFlexLogo } from './PayFlexLogo.js';
 
 const CATEGORIES = [
-  'Deals', 'Mobiles', 'Electronics', 'TV & Appliances',
+  'Mobiles', 'Electronics', 'TV & Appliances',
   'Kitchen & Home', 'Health & Wellness', 'Fashion', 'Baby & Kids', 'Sports & Fitness',
 ];
 
@@ -88,13 +88,6 @@ export function AppShell() {
 
           {/* Right actions */}
           <nav className="ml-auto flex shrink-0 items-center gap-1">
-            <a
-              href="#"
-              className="hidden items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 lg:flex"
-            >
-              <Store size={16} />
-              For Business
-            </a>
             <a
               href="#"
               className="hidden items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 sm:flex"
