@@ -233,8 +233,10 @@ const products = [
     mrp: 34_990,
     sellerName: 'Sony Center India',
     variants: [
-      { color: 'Silver Platinum', colorHex: '#cbd5e1', storage: 'Standard', finish: 'Soft fit leather', imageUrl: '/products/sony-headphones.svg', priceAdjustment: 0, inventory: 25 },
-      { color: 'Midnight Black',  colorHex: '#0f172a', storage: 'Standard', finish: 'Soft fit leather', imageUrl: '/products/sony-headphones.svg', priceAdjustment: 0, inventory: 30 },
+      { color: 'Silver Platinum', colorHex: '#cbd5e1', storage: 'Standard', finish: 'Soft fit leather', imageUrl: '/products/sony-silver.jpg',       priceAdjustment: 0, inventory: 25 },
+      { color: 'Silver (Studio)', colorHex: '#94a3b8', storage: 'Standard', finish: 'Soft fit leather', imageUrl: '/products/sony-silver-angle.jpg', priceAdjustment: 0, inventory: 20 },
+      { color: 'Midnight Black',  colorHex: '#0f172a', storage: 'Standard', finish: 'Soft fit leather', imageUrl: '/products/sony-black.jpg',        priceAdjustment: 0, inventory: 30 },
+      { color: 'Black (Studio)',  colorHex: '#1e293b', storage: 'Standard', finish: 'Soft fit leather', imageUrl: '/products/sony-black-angle.jpg',  priceAdjustment: 0, inventory: 18 },
     ],
     emiPlans: makePlans(1_500),
     specifications: [
@@ -265,8 +267,8 @@ const products = [
     mrp: 64_900,
     sellerName: 'Apple Premium Reseller',
     variants: [
-      { color: 'Starlight',  colorHex: '#f1ede4', storage: '128GB', finish: 'Recycled aluminum', imageUrl: '/products/ipad-air.svg', priceAdjustment: 0, inventory: 18 },
-      { color: 'Space Gray', colorHex: '#4b5563', storage: '256GB', finish: 'Recycled aluminum', imageUrl: '/products/ipad-air.svg', priceAdjustment: 10_000, inventory: 14 },
+      { color: 'Starlight',  colorHex: '#f1ede4', storage: '128GB', finish: 'Recycled aluminum', imageUrl: '/products/ipad-air-front.jpg', priceAdjustment: 0, inventory: 18 },
+      { color: 'Space Gray', colorHex: '#4b5563', storage: '256GB', finish: 'Recycled aluminum', imageUrl: '/products/ipad-air-angle.jpg', priceAdjustment: 10_000, inventory: 14 },
     ],
     emiPlans: makePlans(2_500),
     specifications: [
@@ -300,8 +302,8 @@ const products = [
     mrp: 179_990,
     sellerName: 'LG Electronics Flagship',
     variants: [
-      { color: 'Dark Titan', colorHex: '#1e293b', storage: '55 Inch', finish: 'Ultra-thin bezel', imageUrl: '/products/lg-tv.svg', priceAdjustment: 0, inventory: 12 },
-      { color: 'Dark Titan', colorHex: '#1e293b', storage: '65 Inch', finish: 'Ultra-thin bezel', imageUrl: '/products/lg-tv.svg', priceAdjustment: 55_000, inventory: 8 },
+      { color: 'Dark Titan', colorHex: '#1e293b', storage: '55 Inch', finish: 'Ultra-thin bezel', imageUrl: '/products/lg-oled-tv.jpg', priceAdjustment: 0, inventory: 12 },
+      { color: 'Dark Titan', colorHex: '#1e293b', storage: '65 Inch', finish: 'Ultra-thin bezel', imageUrl: '/products/lg-oled-tv.jpg', priceAdjustment: 55_000, inventory: 8 },
     ],
     emiPlans: makePlans(7_000),
     specifications: [
@@ -333,7 +335,7 @@ const products = [
     mrp: 69_900,
     sellerName: 'Dyson India',
     variants: [
-      { color: 'Yellow / Nickel', colorHex: '#eab308', storage: 'Standard Pack', finish: 'High-grade polymer', imageUrl: '/products/dyson-v15.svg', priceAdjustment: 0, inventory: 15 },
+      { color: 'Yellow / Nickel', colorHex: '#eab308', storage: 'Standard Pack', finish: 'High-grade polymer', imageUrl: '/products/dyson-v15.jpg', priceAdjustment: 0, inventory: 15 },
     ],
     emiPlans: makePlans(3_000),
     specifications: [
@@ -363,7 +365,7 @@ const products = [
     mrp: 112_000,
     sellerName: 'Samsung Direct',
     variants: [
-      { color: 'Refined Inox Steel', colorHex: '#64748b', storage: '653L', finish: 'Fingerprint resistant steel', imageUrl: '/products/samsung-fridge.svg', priceAdjustment: 0, inventory: 9 },
+      { color: 'Refined Inox Steel', colorHex: '#64748b', storage: '653L', finish: 'Fingerprint resistant steel', imageUrl: '/products/samsung-fridge.jpg', priceAdjustment: 0, inventory: 9 },
     ],
     emiPlans: makePlans(4_000),
     specifications: [
@@ -397,7 +399,7 @@ const products = [
     mrp: 19_995,
     sellerName: 'Kitchen Innovations Hub',
     variants: [
-      { color: 'Deep Black / Copper', colorHex: '#18181b', storage: '7.2 Liters', finish: 'Matte composite', imageUrl: '/products/philips-airfryer.svg', priceAdjustment: 0, inventory: 35 },
+      { color: 'Deep Black / Copper', colorHex: '#18181b', storage: '7.2 Liters', finish: 'Matte composite', imageUrl: '/products/philips-airfryer.jpg', priceAdjustment: 0, inventory: 35 },
     ],
     emiPlans: makePlans(1_000),
     specifications: [
@@ -460,7 +462,7 @@ const products = [
     mrp: 15_999,
     sellerName: 'Gourmet Kitchen World',
     variants: [
-      { color: 'Brushed Stainless', colorHex: '#475569', storage: '5.7 Liters', finish: 'Brushed steel', imageUrl: '/products/instant-pot.svg', priceAdjustment: 0, inventory: 28 },
+      { color: 'Brushed Stainless', colorHex: '#475569', storage: '5.7 Liters', finish: 'Brushed steel', imageUrl: '/products/instant-pot.jpg', priceAdjustment: 0, inventory: 28 },
     ],
     emiPlans: makePlans(800),
     specifications: [
@@ -494,8 +496,8 @@ const products = [
     mrp: 24_999,
     sellerName: 'Procter & Gamble Healthcare',
     variants: [
-      { color: 'Rose Quartz', colorHex: '#f43f5e', storage: 'Series 9 Set', finish: 'Matte ergonomic', imageUrl: '/products/oral-b.svg', priceAdjustment: 0, inventory: 22 },
-      { color: 'Black Onyx',  colorHex: '#0f172a', storage: 'Series 9 Set', finish: 'Matte ergonomic', imageUrl: '/products/oral-b.svg', priceAdjustment: 0, inventory: 19 },
+      { color: 'Rose Quartz', colorHex: '#f43f5e', storage: 'Series 9 Set', finish: 'Matte ergonomic', imageUrl: '/products/oral-b-io.jpg', priceAdjustment: 0, inventory: 22 },
+      { color: 'Black Onyx',  colorHex: '#0f172a', storage: 'Series 9 Set', finish: 'Matte ergonomic', imageUrl: '/products/oral-b-io.jpg', priceAdjustment: 0, inventory: 19 },
     ],
     emiPlans: makePlans(1_200),
     specifications: [
@@ -526,8 +528,8 @@ const products = [
     mrp: 46_900,
     sellerName: 'Dyson India Beauty',
     variants: [
-      { color: 'Vinca Blue / Topaz',    colorHex: '#3b82f6', storage: 'With 5 Attachments', finish: 'Ceramic matte', imageUrl: '/products/dyson-hairdryer.svg', priceAdjustment: 0, inventory: 16 },
-      { color: 'Strawberry Bronze',     colorHex: '#fb7185', storage: 'With 5 Attachments', finish: 'Ceramic matte', imageUrl: '/products/dyson-hairdryer.svg', priceAdjustment: 0, inventory: 12 },
+      { color: 'Vinca Blue / Topaz',    colorHex: '#3b82f6', storage: 'With 5 Attachments', finish: 'Ceramic matte', imageUrl: '/products/dyson-hairdryer.jpg', priceAdjustment: 0, inventory: 16 },
+      { color: 'Strawberry Bronze',     colorHex: '#fb7185', storage: 'With 5 Attachments', finish: 'Ceramic matte', imageUrl: '/products/dyson-hairdryer.jpg', priceAdjustment: 0, inventory: 12 },
     ],
     emiPlans: makePlans(2_500),
     specifications: [
@@ -557,7 +559,7 @@ const products = [
     mrp: 39_999,
     sellerName: 'MedTech Direct',
     variants: [
-      { color: 'Obsidian Glass', colorHex: '#0f172a', storage: 'Handle Station', finish: 'High-strength tempered glass', imageUrl: '/products/withings-scale.svg', priceAdjustment: 0, inventory: 14 },
+      { color: 'Obsidian Glass', colorHex: '#0f172a', storage: 'Handle Station', finish: 'High-strength tempered glass', imageUrl: '/products/withings-scale.jpg', priceAdjustment: 0, inventory: 14 },
     ],
     emiPlans: makePlans(2_000),
     specifications: [
@@ -592,8 +594,8 @@ const products = [
     mrp: 72_000,
     sellerName: 'Ethos Watch Boutiques',
     variants: [
-      { color: 'Ice Blue Waffle Dial',  colorHex: '#bae6fd', storage: '40mm Case', finish: 'Satin brushed 316L steel', imageUrl: '/products/tissot-watch.svg', priceAdjustment: 0, inventory: 11 },
-      { color: 'Deep Blue Waffle Dial', colorHex: '#1e3a8a', storage: '40mm Case', finish: 'Satin brushed 316L steel', imageUrl: '/products/tissot-watch.svg', priceAdjustment: 0, inventory: 14 },
+      { color: 'Ice Blue Waffle Dial',  colorHex: '#bae6fd', storage: '40mm Case', finish: 'Satin brushed 316L steel', imageUrl: '/products/tissot-watch.jpg', priceAdjustment: 0, inventory: 11 },
+      { color: 'Deep Blue Waffle Dial', colorHex: '#1e3a8a', storage: '40mm Case', finish: 'Satin brushed 316L steel', imageUrl: '/products/tissot-watch.jpg', priceAdjustment: 0, inventory: 14 },
     ],
     emiPlans: makePlans(3_500),
     specifications: [
@@ -624,8 +626,8 @@ const products = [
     mrp: 34_900,
     sellerName: 'Sunglass Hut Official',
     variants: [
-      { color: 'Shiny Black / G-15 Green', colorHex: '#0f172a', storage: 'Standard Size', finish: 'Polished acetate', imageUrl: '/products/rayban-meta.svg', priceAdjustment: 0, inventory: 24 },
-      { color: 'Matte Jeans / Clear Lens',  colorHex: '#3b82f6', storage: 'Standard Size', finish: 'Matte acetate',    imageUrl: '/products/rayban-meta.svg', priceAdjustment: 2_000, inventory: 16 },
+      { color: 'Shiny Black / G-15 Green', colorHex: '#0f172a', storage: 'Standard Size', finish: 'Polished acetate', imageUrl: '/products/rayban-meta.jpg', priceAdjustment: 0, inventory: 24 },
+      { color: 'Matte Jeans / Clear Lens',  colorHex: '#3b82f6', storage: 'Standard Size', finish: 'Matte acetate',    imageUrl: '/products/rayban-meta.jpg', priceAdjustment: 2_000, inventory: 16 },
     ],
     emiPlans: makePlans(1_500),
     specifications: [
@@ -656,7 +658,7 @@ const products = [
     mrp: 125_000,
     sellerName: 'Rimowa Flagship Store',
     variants: [
-      { color: 'Silver Aluminum', colorHex: '#e2e8f0', storage: '36 Liters (Cabin)', finish: 'Grooved anodized alloy', imageUrl: '/products/rimowa-luggage.svg', priceAdjustment: 0, inventory: 8 },
+      { color: 'Silver Aluminum', colorHex: '#e2e8f0', storage: '36 Liters (Cabin)', finish: 'Grooved anodized alloy', imageUrl: '/products/rimowa-luggage.jpg', priceAdjustment: 0, inventory: 8 },
     ],
     emiPlans: makePlans(6_000),
     specifications: [
@@ -691,8 +693,8 @@ const products = [
     mrp: 32_900,
     sellerName: 'Scandinavian Baby Co',
     variants: [
-      { color: 'Natural Oak', colorHex: '#d97706', storage: 'Standard Size', finish: 'Solid European Beech', imageUrl: '/products/stokke-chair.svg', priceAdjustment: 0, inventory: 16 },
-      { color: 'Warm Red',    colorHex: '#ef4444', storage: 'Standard Size', finish: 'Solid European Beech', imageUrl: '/products/stokke-chair.svg', priceAdjustment: 0, inventory: 12 },
+      { color: 'Natural Oak', colorHex: '#d97706', storage: 'Standard Size', finish: 'Solid European Beech', imageUrl: '/products/stokke-chair.jpg', priceAdjustment: 0, inventory: 16 },
+      { color: 'Warm Red',    colorHex: '#ef4444', storage: 'Standard Size', finish: 'Solid European Beech', imageUrl: '/products/stokke-chair.jpg', priceAdjustment: 0, inventory: 12 },
     ],
     emiPlans: makePlans(1_500),
     specifications: [
@@ -722,7 +724,7 @@ const products = [
     mrp: 89_999,
     sellerName: 'LEGO Certified Store India',
     variants: [
-      { color: 'UCS Galactic Gray', colorHex: '#94a3b8', storage: '7,541 Pieces', finish: 'Official LEGO bricks', imageUrl: '/products/lego-falcon.svg', priceAdjustment: 0, inventory: 7 },
+      { color: 'UCS Galactic Gray', colorHex: '#94a3b8', storage: '7,541 Pieces', finish: 'Official LEGO bricks', imageUrl: '/products/lego-starwars.jpg', priceAdjustment: 0, inventory: 7 },
     ],
     emiPlans: makePlans(4_000),
     specifications: [
@@ -752,8 +754,8 @@ const products = [
     mrp: 42_990,
     sellerName: 'FirstCry Premium Brands',
     variants: [
-      { color: 'Mirage Blue', colorHex: '#3b82f6', storage: 'Group 0+ (0-24M)', finish: 'Breathable Plus fabric', imageUrl: '/products/cybex-carseat.svg', priceAdjustment: 0, inventory: 15 },
-      { color: 'Deep Black',  colorHex: '#0f172a', storage: 'Group 0+ (0-24M)', finish: 'Breathable Plus fabric', imageUrl: '/products/cybex-carseat.svg', priceAdjustment: 0, inventory: 18 },
+      { color: 'Mirage Blue', colorHex: '#3b82f6', storage: 'Group 0+ (0-24M)', finish: 'Breathable Plus fabric', imageUrl: '/products/cybex-carseat.jpg', priceAdjustment: 0, inventory: 15 },
+      { color: 'Deep Black',  colorHex: '#0f172a', storage: 'Group 0+ (0-24M)', finish: 'Breathable Plus fabric', imageUrl: '/products/cybex-carseat.jpg', priceAdjustment: 0, inventory: 18 },
     ],
     emiPlans: makePlans(2_000),
     specifications: [
@@ -787,8 +789,8 @@ const products = [
     mrp: 74_990,
     sellerName: 'Garmin India Official',
     variants: [
-      { color: 'Amp Yellow / Titanium', colorHex: '#eab308', storage: '47mm Case', finish: 'Titanium bezel', imageUrl: '/products/garmin-watch.svg', priceAdjustment: 0, inventory: 14 },
-      { color: 'Black / Titanium',       colorHex: '#0f172a', storage: '47mm Case', finish: 'Titanium bezel', imageUrl: '/products/garmin-watch.svg', priceAdjustment: 0, inventory: 18 },
+      { color: 'Amp Yellow / Titanium', colorHex: '#eab308', storage: '47mm Case', finish: 'Titanium bezel', imageUrl: '/products/garmin-watch.jpg', priceAdjustment: 0, inventory: 14 },
+      { color: 'Black / Titanium',       colorHex: '#0f172a', storage: '47mm Case', finish: 'Titanium bezel', imageUrl: '/products/garmin-watch.jpg', priceAdjustment: 0, inventory: 18 },
     ],
     emiPlans: makePlans(3_500),
     specifications: [
@@ -819,7 +821,7 @@ const products = [
     mrp: 52_999,
     sellerName: 'Fitness Pro Gear',
     variants: [
-      { color: 'Carbon Black / Red', colorHex: '#dc2626', storage: 'Pair (2-24 kg)', finish: 'Durable composite molded plates', imageUrl: '/products/bowflex-dumbbells.svg', priceAdjustment: 0, inventory: 10 },
+      { color: 'Carbon Black / Red', colorHex: '#dc2626', storage: 'Pair (2-24 kg)', finish: 'Durable composite molded plates', imageUrl: '/products/bowflex-dumbbells.jpg', priceAdjustment: 0, inventory: 10 },
     ],
     emiPlans: makePlans(2_500),
     specifications: [
@@ -849,7 +851,7 @@ const products = [
     mrp: 132_000,
     sellerName: 'Concept2 India Direct',
     variants: [
-      { color: 'Matte Black', colorHex: '#0f172a', storage: 'Standard 14" Leg', finish: 'Powder-coated aluminum monorail', imageUrl: '/products/concept2-rower.svg', priceAdjustment: 0, inventory: 6 },
+      { color: 'Matte Black', colorHex: '#0f172a', storage: 'Standard 14" Leg', finish: 'Powder-coated aluminum monorail', imageUrl: '/products/concept2-rower.jpg', priceAdjustment: 0, inventory: 6 },
     ],
     emiPlans: makePlans(6_000),
     specifications: [
