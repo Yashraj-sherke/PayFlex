@@ -19,7 +19,7 @@ export class ProductNotFoundError extends Error {}
 export class InvalidSelectionError extends Error {}
 
 export interface CatalogService {
-  listProducts(): Promise<ProductSummaryDto[]>;
+  listProducts(category?: string, search?: string): Promise<ProductSummaryDto[]>;
   getProduct(slug: string): Promise<ProductDetailDto | null>;
   getEmiPlans(slug: string, variantId?: string): Promise<EmiPlanDto[]>;
   createCheckoutIntent(input: CheckoutIntentInput): Promise<CheckoutIntentDto>;
@@ -119,8 +119,38 @@ function productFilter(slugOrId: string) {
 
 export function createMongooseCatalogService(): CatalogService {
   return {
-    async listProducts() {
-      const products = await Product.find().sort({ createdAt: 1 }).lean<IProduct[]>();
+    async listProducts(category?: string, search?: string) {
+      const filter: Record<string, unknown> = {};
+
+      if (category && category.trim()) {
+        const cat = category.trim();
+        if (cat.toLowerCase() === 'deals') {
+          filter.$or = [
+            { $expr: { $gt: ['$mrp', '$basePrice'] } },
+            { badge: { $exists: true, $ne: '' } },
+          ];
+        } else if (cat.toLowerCase() === 'mobiles') {
+          filter.category = { $in: [/^mobiles?$/i, /^smartphones?$/i] };
+        } else {
+          filter.category = new RegExp(`^${cat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i');
+        }
+      }
+
+      if (search && search.trim()) {
+        const s = search.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const searchRegex = new RegExp(s, 'i');
+        const searchCondition = {
+          $or: [{ name: searchRegex }, { brand: searchRegex }, { category: searchRegex }],
+        };
+        if (filter.$or) {
+          filter.$and = [{ $or: filter.$or }, searchCondition];
+          delete filter.$or;
+        } else {
+          Object.assign(filter, searchCondition);
+        }
+      }
+
+      const products = await Product.find(filter).sort({ createdAt: 1 }).lean<IProduct[]>();
 
       return products.map((product) => {
         const defaultVariant = product.variants[0];

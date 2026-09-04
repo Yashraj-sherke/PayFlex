@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" fill="none">
+  <!-- Silicone Strap Top & Bottom -->
+  <rect x="210" y="40" width="80" height="140" rx="12" fill="#334155"/>
+  <rect x="210" y="420" width="80" height="140" rx="12" fill="#334155"/>
+  <!-- Watch Case Bezel -->
+  <circle cx="250" cy="300" r="120" fill="#0f172a" stroke="#475569" stroke-width="12"/>
+  <!-- Yellow Accent Ring -->
+  <circle cx="250" cy="300" r="108" fill="none" stroke="#eab308" stroke-width="4"/>
+  <!-- AMOLED Dial Screen -->
+  <circle cx="250" cy="300" r="102" fill="#020617"/>
+  <text x="250" y="295" font-family="sans-serif" font-size="34" font-weight="900" fill="#f8fafc" text-anchor="middle">10:42</text>
+  <text x="250" y="330" font-family="sans-serif" font-size="14" font-weight="bold" fill="#eab308" text-anchor="middle">⚡ 164 BPM</text>
+</svg>

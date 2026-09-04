@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="scBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#13272e"/>
+      <stop offset="100%" stop-color="#061014"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" rx="28" fill="url(#scBg)"/>
+  <!-- Glass Scale Platform -->
+  <rect x="150" y="110" width="300" height="340" rx="34" fill="#0f172a" stroke="#2dd4bf" stroke-width="3" opacity="0.95"/>
+  <!-- Grid Lines for Bio-impedance -->
+  <line x1="150" y1="280" x2="450" y2="280" stroke="#14b8a6" stroke-width="2" stroke-dasharray="6,6"/>
+  <line x1="300" y1="180" x2="300" y2="450" stroke="#14b8a6" stroke-width="2" stroke-dasharray="6,6"/>
+  <!-- Color Display -->
+  <rect x="240" y="140" width="120" height="70" rx="8" fill="#020617" stroke="#2dd4bf" stroke-width="2"/>
+  <text x="300" y="180" fill="#2dd4bf" font-family="system-ui" font-size="22" font-weight="900" text-anchor="middle">68.4 kg</text>
+  <text x="300" y="200" fill="#6ee7b7" font-family="system-ui" font-size="10" font-weight="700" text-anchor="middle">ECG NORMAL · FAT 14%</text>
+  <!-- Handle bar mounted at top -->
+  <rect x="190" y="70" width="220" height="18" rx="9" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+  <text x="300" y="525" fill="#5eead4" font-family="system-ui, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="2">WITHINGS BODY SCAN</text>
+</svg>

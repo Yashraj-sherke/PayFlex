@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="fridgeBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </radialGradient>
+    <linearGradient id="ssSteel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" rx="28" fill="url(#fridgeBg)"/>
+  <!-- French Door Refrigerator Main Outline -->
+  <rect x="180" y="70" width="240" height="420" rx="14" fill="url(#ssSteel)" stroke="#94a3b8" stroke-width="3"/>
+  <!-- French Doors Vertical Divide -->
+  <line x1="300" y1="72" x2="300" y2="320" stroke="#0f172a" stroke-width="4"/>
+  <!-- Freezer Horizontal Divide -->
+  <line x1="180" y1="322" x2="420" y2="322" stroke="#0f172a" stroke-width="4"/>
+  <!-- Door Handles -->
+  <rect x="290" y="140" width="6" height="120" rx="3" fill="#cbd5e1"/>
+  <rect x="304" y="140" width="6" height="120" rx="3" fill="#cbd5e1"/>
+  <rect x="250" y="340" width="100" height="8" rx="4" fill="#cbd5e1"/>
+  <!-- Smart Touch Screen on Right Door -->
+  <rect x="325" y="110" width="70" height="110" rx="6" fill="#020617" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="360" cy="140" r="14" fill="#0284c7" opacity="0.6"/>
+  <rect x="338" y="170" width="44" height="6" rx="3" fill="#38bdf8"/>
+  <rect x="345" y="184" width="30" height="4" rx="2" fill="#94a3b8"/>
+  <text x="300" y="535" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="2">SAMSUNG FRENCH DOOR 653L</text>
+</svg>

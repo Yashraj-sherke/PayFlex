@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="rbBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0b0a21"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" rx="28" fill="url(#rbBg)"/>
+  <!-- Wayfarer Frame Left Eye -->
+  <path d="M 140 210 Q 150 170 260 180 Q 275 250 250 300 Q 180 320 145 270 Z" fill="#020617" stroke="#818cf8" stroke-width="4"/>
+  <!-- Wayfarer Frame Right Eye -->
+  <path d="M 460 210 Q 450 170 340 180 Q 325 250 350 300 Q 420 320 455 270 Z" fill="#020617" stroke="#818cf8" stroke-width="4"/>
+  <!-- Dark UV Lens Gradient -->
+  <path d="M 155 215 Q 165 190 248 195 Q 255 250 238 285 Q 185 300 160 265 Z" fill="#1e1b4b" opacity="0.9"/>
+  <path d="M 445 215 Q 435 190 352 195 Q 345 250 362 285 Q 415 300 440 265 Z" fill="#1e1b4b" opacity="0.9"/>
+  <!-- Bridge -->
+  <path d="M 260 195 Q 300 185 340 195" fill="none" stroke="#818cf8" stroke-width="6"/>
+  <!-- Ultra-wide Camera Lenses in corners -->
+  <circle cx="140" cy="195" r="7" fill="#020617" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="460" cy="195" r="7" fill="#020617" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="460" cy="195" r="3" fill="#22c55e"/>
+  <text x="300" y="525" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="2">RAY-BAN META WAYFARER</text>
+</svg>

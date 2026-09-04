@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 650" fill="none">
+  <!-- Scandinavian Beech Wood High Chair Frame -->
+  <!-- A-Frame Legs -->
+  <line x1="160" y1="560" x2="260" y2="120" stroke="#d97706" stroke-width="20" stroke-linecap="round"/>
+  <line x1="340" y1="560" x2="260" y2="260" stroke="#b45309" stroke-width="20" stroke-linecap="round"/>
+  <!-- Curved Backrest Slats -->
+  <rect x="210" y="160" width="120" height="24" rx="8" fill="#f59e0b"/>
+  <rect x="210" y="200" width="120" height="24" rx="8" fill="#f59e0b"/>
+  <!-- Seat Plate -->
+  <rect x="190" y="300" width="150" height="18" rx="6" fill="#f59e0b"/>
+  <!-- Footrest Plate -->
+  <rect x="180" y="420" width="170" height="18" rx="6" fill="#f59e0b"/>
+  <!-- Floor Base -->
+  <line x1="130" y1="560" x2="370" y2="560" stroke="#92400e" stroke-width="16" stroke-linecap="round"/>
+</svg>

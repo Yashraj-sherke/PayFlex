@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <!-- MacBook Display Lid -->
+  <rect x="180" y="100" width="440" height="280" rx="16" fill="#1e293b" stroke="#0f172a" stroke-width="4"/>
+  <rect x="194" y="114" width="412" height="252" rx="8" fill="#090d16"/>
+  <!-- Display Screen Gradient (macOS wallpaper) -->
+  <defs>
+    <linearGradient id="mb-screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect x="200" y="120" width="400" height="240" rx="4" fill="url(#mb-screen)"/>
+  <circle cx="400" cy="128" r="3" fill="#334155"/>
+  <!-- Notch -->
+  <path d="M 380 120 L 420 120 L 416 128 L 384 128 Z" fill="#090d16"/>
+  <!-- Base Chassis -->
+  <path d="M 120 380 L 680 380 L 640 410 L 160 410 Z" fill="#94a3b8"/>
+  <rect x="120" y="380" width="560" height="10" rx="4" fill="#cbd5e1"/>
+  <!-- Trackpad Notch Lip -->
+  <rect x="360" y="380" width="80" height="4" rx="2" fill="#64748b"/>
+  <!-- Feet -->
+  <rect x="160" y="410" width="40" height="4" rx="2" fill="#475569"/>
+  <rect x="600" y="410" width="40" height="4" rx="2" fill="#475569"/>
+</svg>

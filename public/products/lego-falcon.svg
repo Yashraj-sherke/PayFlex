@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="lgBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#090518"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" rx="28" fill="url(#lgBg)"/>
+  <!-- Millennium Falcon Body Shape -->
+  <ellipse cx="300" cy="270" rx="140" ry="110" fill="#94a3b8" stroke="#f1f5f9" stroke-width="3"/>
+  <!-- Front Mandibles -->
+  <path d="M 240 180 L 240 80 L 275 110 L 275 180 Z" fill="#64748b" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M 360 180 L 360 80 L 325 110 L 325 180 Z" fill="#64748b" stroke="#cbd5e1" stroke-width="2"/>
+  <!-- Cockpit Outrigger -->
+  <path d="M 420 230 L 480 200 L 480 240 L 420 260 Z" fill="#475569" stroke="#cbd5e1" stroke-width="2"/>
+  <!-- Engine Strip Glow -->
+  <path d="M 200 340 Q 300 375 400 340" fill="none" stroke="#38bdf8" stroke-width="10" filter="drop-shadow(0 0 10px #38bdf8)"/>
+  <!-- Radar Dish -->
+  <ellipse cx="230" cy="240" rx="22" ry="14" fill="#334155" stroke="#f1f5f9" stroke-width="2"/>
+  <text x="300" y="525" fill="#fed7aa" font-family="system-ui, sans-serif" font-size="18" font-weight="700" text-anchor="middle" letter-spacing="2">LEGO MILLENNIUM FALCON</text>
+</svg>

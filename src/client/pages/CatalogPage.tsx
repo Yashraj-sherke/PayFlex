@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import type { ProductSummaryDto } from '../../shared/types';
 import { ErrorState } from '../components/ErrorState';
 import { ProductCardSkeleton } from '../components/LoadingStates';
@@ -13,28 +14,42 @@ const FEATURES = [
 ];
 
 export function CatalogPage() {
+  const [searchParams] = useSearchParams();
+  const categoryParam = searchParams.get('category') ?? (searchParams.get('q') ? '' : 'Mobiles');
+  const searchQuery = searchParams.get('q') ?? '';
+
   const [products, setProducts] = useState<ProductSummaryDto[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
 
+  const headingTitle = searchQuery
+    ? `Results for "${searchQuery}"`
+    : categoryParam === 'Deals'
+    ? 'Hot Deals on EMI'
+    : `${categoryParam || 'Flagship Products'} on EMI`;
+
   useDocumentMetadata(
-    'PayFlex | Shop Premium Tech on Easy EMI',
-    'Browse premium smartphones with transparent EMI prices, zero-interest options and flexible monthly payments.',
+    `PayFlex | ${headingTitle}`,
+    'Browse premium products across all categories with transparent EMI prices, zero-interest options and flexible monthly payments.',
   );
 
   const loadProducts = useCallback(async (signal?: AbortSignal) => {
     setIsLoading(true);
     setError(null);
     try {
-      setProducts(await requestApi<ProductSummaryDto[]>('/api/products', undefined, signal));
+      const params = new URLSearchParams();
+      if (categoryParam) params.set('category', categoryParam);
+      if (searchQuery) params.set('q', searchQuery);
+      const queryString = params.toString() ? `?${params.toString()}` : '';
+      setProducts(await requestApi<ProductSummaryDto[]>(`/api/products${queryString}`, undefined, signal));
     } catch (loadError) {
       if (loadError instanceof DOMException && loadError.name === 'AbortError') return;
       setError(loadError instanceof Error ? loadError.message : 'Unable to load products.');
     } finally {
       if (!signal?.aborted) setIsLoading(false);
     }
-  }, []);
+  }, [categoryParam, searchQuery]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -98,13 +113,15 @@ export function CatalogPage() {
         <div className="mx-auto max-w-[1440px]">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-brand-600">Curated collection</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-brand-600">
+                {searchQuery ? 'Search results' : 'Curated collection'}
+              </p>
               <h2 className="mt-1 font-display text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                Flagship Smartphones on EMI
+                {headingTitle}
               </h2>
             </div>
             <p className="max-w-sm text-sm text-slate-500">
-              Real EMI math, transparent pricing, and flexible tenures.
+              {isLoading ? 'Checking real-time EMI offers...' : `${products.length} product${products.length === 1 ? '' : 's'} with real EMI math, transparent pricing, and flexible tenures.`}
             </p>
           </div>
 
@@ -123,8 +140,12 @@ export function CatalogPage() {
 
           {!isLoading && !error && products.length === 0 && (
             <div className="mt-10 rounded-2xl border border-dashed border-slate-200 bg-white p-12 text-center">
-              <h3 className="font-display text-2xl font-extrabold text-slate-800">Collection being refreshed</h3>
-              <p className="mt-2 text-sm text-slate-500">Check back shortly for available products.</p>
+              <h3 className="font-display text-2xl font-extrabold text-slate-800">No products found</h3>
+              <p className="mt-2 text-sm text-slate-500">
+                {searchQuery
+                  ? `No products matched "${searchQuery}". Try a different keyword or category.`
+                  : 'Check back shortly for newly added products in this category.'}
+              </p>
             </div>
           )}
         </div>

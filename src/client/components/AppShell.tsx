@@ -1,6 +1,6 @@
 import { Search, Store } from 'lucide-react';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, Outlet, useNavigate, useSearchParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { PayFlexLogo } from './PayFlexLogo.js';
 
 const CATEGORIES = [
@@ -33,13 +33,29 @@ export function BrandMark({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
 }
 
 export function AppShell() {
-  const [activeCategory, setActiveCategory] = useState('Mobiles');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const activeCategory = searchParams.get('category') ?? (searchParams.get('q') ? '' : 'Mobiles');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') ?? '');
+
+  useEffect(() => {
+    setSearchQuery(searchParams.get('q') ?? '');
+  }, [searchParams]);
+
+  function handleCategoryClick(cat: string) {
+    const params = new URLSearchParams();
+    params.set('category', cat);
+    navigate(`/?${params.toString()}#products`);
+  }
 
   function handleSearch(e: React.FormEvent) {
     e.preventDefault();
-    if (searchQuery.trim()) navigate('/');
+    const query = searchQuery.trim();
+    if (query) {
+      navigate(`/?q=${encodeURIComponent(query)}#products`);
+    } else {
+      navigate('/');
+    }
   }
 
   return (
@@ -123,7 +139,7 @@ export function AppShell() {
                 key={cat}
                 type="button"
                 id={`cat-${cat.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => handleCategoryClick(cat)}
                 className={`pf-cat-tab ${activeCategory === cat ? 'pf-cat-tab-active' : ''}`}
               >
                 {cat}

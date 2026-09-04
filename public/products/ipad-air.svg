@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" fill="none">
+  <!-- Body Chassis -->
+  <rect x="130" y="80" width="340" height="480" rx="28" fill="#e2e8f0" stroke="#94a3b8" stroke-width="6"/>
+  <rect x="144" y="94" width="312" height="452" rx="18" fill="#0f172a"/>
+  <!-- Screen Wallpaper -->
+  <defs>
+    <linearGradient id="ipad-screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <rect x="152" y="102" width="296" height="436" rx="12" fill="url(#ipad-screen)"/>
+  <!-- Front Camera -->
+  <circle cx="300" cy="112" r="3" fill="#1e293b"/>
+</svg>

@@ -42,8 +42,10 @@ export function createApp(dependencies: AppDependencies = {}) {
     response.json({ success: true, data: { status: 'ok' } });
   });
 
-  apiRouter.get('/products', async (_request, response) => {
-    const products = await catalogService.listProducts();
+  apiRouter.get('/products', async (request, response) => {
+    const category = typeof request.query.category === 'string' ? request.query.category : undefined;
+    const search = typeof request.query.q === 'string' ? request.query.q : undefined;
+    const products = await catalogService.listProducts(category, search);
     response.json({ success: true, data: products });
   });
 
