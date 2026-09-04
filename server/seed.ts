@@ -164,8 +164,8 @@ const products = [
     mrp: 69_999,
     sellerName: 'OnePlus Official',
     variants: [
-      { color: 'Flowy Emerald', colorHex: '#2d5238', storage: '256GB', finish: 'Emerald glass', imageUrl: '/products/oneplus-12.svg', priceAdjustment: 0, inventory: 22 },
-      { color: 'Silky Black',   colorHex: '#1e293b', storage: '512GB', finish: 'Matte AG glass', imageUrl: '/products/oneplus-12.svg', priceAdjustment: 5_000, inventory: 16 },
+      { color: 'Flowy Emerald', colorHex: '#2d5238', storage: '256GB', finish: 'Emerald glass', imageUrl: '/products/oneplus-emerald.jpg', priceAdjustment: 0,     inventory: 22 },
+      { color: 'Silky Black',   colorHex: '#1e293b', storage: '512GB', finish: 'Matte AG glass', imageUrl: '/products/oneplus-black.jpg',   priceAdjustment: 5_000, inventory: 16 },
     ],
     emiPlans: makePlans(3_000),
     specifications: [
