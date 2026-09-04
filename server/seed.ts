@@ -227,8 +227,8 @@ const products = [
     mrp: 129_999,
     sellerName: 'Samsung Official Store',
     variants: [
-      { color: 'Titanium Gray', colorHex: '#aaa69d', storage: '256GB', finish: 'Brushed titanium', imageUrl: '/products/galaxy-gray.svg',  priceAdjustment: 0,      inventory: 17 },
-      { color: 'Titanium Black',colorHex: '#3b3c3d', storage: '512GB', finish: 'Brushed titanium', imageUrl: '/products/galaxy-black.svg', priceAdjustment: 15_000, inventory: 9  },
+      { color: 'Titanium Gray', colorHex: '#aaa69d', storage: '256GB', finish: 'Brushed titanium', imageUrl: '/products/galaxy-gray.png',  priceAdjustment: 0,      inventory: 17 },
+      { color: 'Titanium Black',colorHex: '#3b3c3d', storage: '512GB', finish: 'Brushed titanium', imageUrl: '/products/galaxy-black.png', priceAdjustment: 15_000, inventory: 9  },
     ],
     emiPlans: standardPlans.map((plan) => ({
       ...plan,
