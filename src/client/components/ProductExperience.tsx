@@ -45,7 +45,6 @@ export function ProductExperience({ product }: ProductExperienceProps) {
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [intent, setIntent] = useState<CheckoutIntentDto | null>(null);
-  const [activeThumb, setActiveThumb] = useState(0);
   const [showAllSpecs, setShowAllSpecs] = useState(false);
   const [expandedPolicy, setExpandedPolicy] = useState<number | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -67,7 +66,7 @@ export function ProductExperience({ product }: ProductExperienceProps) {
       setPlans(product.emiPlans);
       setSelectedPlanId(preferredPlan(product.emiPlans));
     }
-  }, [product.slug]);
+  }, [product.slug, product.variants, product.emiPlans]);
 
   const currentImageUrl = selectedVariant?.imageUrl || galleryItems[activeImageIndex]?.url;
 
