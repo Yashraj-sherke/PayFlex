@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import type { ProductSummaryDto } from '../../shared/types';
 import { ErrorState } from '../components/ErrorState';
 import { ProductCardSkeleton } from '../components/LoadingStates';
@@ -15,9 +15,17 @@ const FEATURES = [
 
 export function CatalogPage() {
   const [searchParams] = useSearchParams();
+  const location = useLocation();
   const categoryParam = searchParams.get('category') ?? (searchParams.get('q') ? '' : 'Mobiles');
   const searchQuery = searchParams.get('q') ?? '';
 
+  // Scroll to top when navigating to a category without a hash anchor
+  // (non-Mobiles categories don't have a hero banner, so start at top)
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [categoryParam, searchQuery, location.hash]);
   const [products, setProducts] = useState<ProductSummaryDto[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

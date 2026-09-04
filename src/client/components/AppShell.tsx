@@ -45,7 +45,10 @@ export function AppShell() {
   function handleCategoryClick(cat: string) {
     const params = new URLSearchParams();
     params.set('category', cat);
-    navigate(`/?${params.toString()}#products`);
+    // Only scroll to #products for Mobiles (which has a hero banner above the grid).
+    // For all other categories, start at the top of the page so the heading is visible.
+    const hash = cat === 'Mobiles' ? '#products' : '';
+    navigate(`/?${params.toString()}${hash}`);
   }
 
   function handleSearch(e: React.FormEvent) {
