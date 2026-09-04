@@ -1,11 +1,16 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ArrowDown, BadgeCheck, CreditCard, ShieldCheck, Sparkles } from 'lucide-react';
 import type { ProductSummaryDto } from '../../shared/types';
 import { ErrorState } from '../components/ErrorState';
 import { ProductCardSkeleton } from '../components/LoadingStates';
 import { ProductCard } from '../components/ProductCard';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { requestApi } from '../lib/api';
+
+const FEATURES = [
+  { value: '0%', label: 'No Cost EMI plans' },
+  { value: '3–36', label: 'Month tenures' },
+  { value: '100%', label: 'Transparent pricing' },
+];
 
 export function CatalogPage() {
   const [products, setProducts] = useState<ProductSummaryDto[]>([]);
@@ -14,8 +19,8 @@ export function CatalogPage() {
   const [attempt, setAttempt] = useState(0);
 
   useDocumentMetadata(
-    'PayFlex | Premium tech on flexible EMI plans',
-    'Browse premium technology with transparent prices, zero-interest EMI options and flexible monthly payments.',
+    'PayFlex | Shop Premium Tech on Easy EMI',
+    'Browse premium smartphones with transparent EMI prices, zero-interest options and flexible monthly payments.',
   );
 
   const loadProducts = useCallback(async (signal?: AbortSignal) => {
@@ -39,132 +44,112 @@ export function CatalogPage() {
 
   return (
     <>
-      <section className="px-4 pt-4 sm:px-6 sm:pt-6 lg:px-8">
-        <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-[2rem] bg-ink px-6 py-16 text-white shadow-soft sm:px-10 sm:py-20 lg:px-16 lg:py-24">
-          <div className="hero-orb hero-orb-one" />
-          <div className="hero-orb hero-orb-two" />
-          <div className="relative z-10 max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.15em] text-moss-200 backdrop-blur">
-              <Sparkles size={14} /> Premium tech, simpler payments
-            </span>
-            <h1 className="mt-7 font-display text-[clamp(2.8rem,7vw,6.6rem)] font-extrabold leading-[0.92] tracking-[-0.075em]">
-              The smarter way
-              <span className="block text-moss-300">to make it yours.</span>
-            </h1>
-            <p className="mt-7 max-w-xl text-base leading-7 text-white/65 sm:text-lg">
-              Explore standout devices and choose an EMI plan with clear monthly costs,
-              transparent interest, and cashback you can actually see.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a
-                href="#products"
-                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 text-sm font-extrabold text-ink transition hover:-translate-y-0.5 hover:bg-moss-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-moss-300 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-              >
-                Shop the collection <ArrowDown size={17} />
-              </a>
-              <a
-                href="#how-it-works"
-                className="inline-flex min-h-12 items-center rounded-full border border-white/20 px-6 text-sm font-extrabold text-white transition hover:border-white/40 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                See how it works
-              </a>
-            </div>
+      {/* ── Hero Banner ──────────────────────────── */}
+      <section className="relative overflow-hidden bg-slate-900 px-4 pb-14 pt-12 sm:px-8 sm:pb-16 sm:pt-14 lg:px-16">
+        {/* Decorative orbs */}
+        <div className="hero-orb hero-orb-one" />
+        <div className="hero-orb hero-orb-two" />
+
+        <div className="relative z-10 mx-auto max-w-[1440px]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-brand-300 backdrop-blur">
+            ✦ No Cost EMI · Zero down payment
+          </span>
+
+          <h1 className="mt-5 font-display text-[clamp(2.2rem,6vw,5rem)] font-extrabold leading-[0.95] tracking-tight text-white">
+            Shop the Smartest
+            <span className="block text-brand-400">Tech on EMI</span>
+          </h1>
+
+          <p className="mt-5 max-w-lg text-base leading-7 text-white/60 sm:text-lg">
+            Explore premium devices and choose an EMI plan with clear monthly costs,
+            transparent interest, and cashback you can actually see.
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a
+              href="#products"
+              id="shop-collection-btn"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-600 px-6 text-sm font-bold text-white transition hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+            >
+              Shop Collection ↓
+            </a>
+            <a
+              href="#how-it-works"
+              className="inline-flex min-h-11 items-center rounded-full border border-white/25 px-6 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10 focus:outline-none"
+            >
+              How it works
+            </a>
           </div>
 
-          <div className="relative z-10 mt-14 grid max-w-3xl grid-cols-3 gap-2 border-t border-white/10 pt-6 text-xs sm:gap-6 sm:text-sm">
-            <div>
-              <p className="font-display text-2xl font-extrabold text-moss-300 sm:text-3xl">0%</p>
-              <p className="mt-1 text-white/50">plans available</p>
-            </div>
-            <div className="border-x border-white/10 px-3 sm:px-6">
-              <p className="font-display text-2xl font-extrabold text-moss-300 sm:text-3xl">3–60</p>
-              <p className="mt-1 text-white/50">month choices</p>
-            </div>
-            <div className="pl-1 sm:pl-6">
-              <p className="font-display text-2xl font-extrabold text-moss-300 sm:text-3xl">100%</p>
-              <p className="mt-1 text-white/50">clear pricing</p>
-            </div>
+          {/* Stats row */}
+          <div className="mt-10 flex max-w-lg flex-wrap gap-8 border-t border-white/10 pt-6">
+            {FEATURES.map(({ value, label }) => (
+              <div key={label}>
+                <p className="font-display text-2xl font-extrabold text-brand-400 sm:text-3xl">{value}</p>
+                <p className="mt-0.5 text-xs text-white/50">{label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="products" className="scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      {/* ── Product Grid ─────────────────────────── */}
+      <section id="products" className="scroll-mt-24 px-4 py-10 sm:px-8 sm:py-14 lg:px-10">
+        <div className="mx-auto max-w-[1440px]">
+          <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-moss-600">Curated collection</p>
-              <h2 className="mt-2 font-display text-3xl font-extrabold tracking-[-0.05em] sm:text-5xl">
-                Flagships, made flexible.
+              <p className="text-xs font-semibold uppercase tracking-widest text-brand-600">Curated collection</p>
+              <h2 className="mt-1 font-display text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                Flagship Smartphones on EMI
               </h2>
             </div>
-            <p className="max-w-sm text-sm leading-6 text-ink/55">
-              Pick a configuration, compare real EMI math, and continue through a safe demo flow.
+            <p className="max-w-sm text-sm text-slate-500">
+              Real EMI math, transparent pricing, and flexible tenures.
             </p>
           </div>
 
-          <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {isLoading &&
-              Array.from({ length: 3 }).map((_, index) => <ProductCardSkeleton key={index} />)}
-            {!isLoading &&
-              !error &&
-              products.map((product, index) => (
-                <ProductCard key={product.id} product={product} index={index} />
-              ))}
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {isLoading && Array.from({ length: 3 }).map((_, i) => <ProductCardSkeleton key={i} />)}
+            {!isLoading && !error && products.map((product, index) => (
+              <ProductCard key={product.id} product={product} index={index} />
+            ))}
           </div>
 
           {!isLoading && error && (
             <div className="mt-10">
-              <ErrorState message={error} onRetry={() => setAttempt((value) => value + 1)} />
+              <ErrorState message={error} onRetry={() => setAttempt((v) => v + 1)} />
             </div>
           )}
 
           {!isLoading && !error && products.length === 0 && (
-            <div className="mt-10 rounded-4xl border border-dashed border-black/15 bg-white p-12 text-center">
-              <h3 className="font-display text-2xl font-extrabold">The collection is being refreshed</h3>
-              <p className="mt-2 text-sm text-ink/55">Check back shortly for available products.</p>
+            <div className="mt-10 rounded-2xl border border-dashed border-slate-200 bg-white p-12 text-center">
+              <h3 className="font-display text-2xl font-extrabold text-slate-800">Collection being refreshed</h3>
+              <p className="mt-2 text-sm text-slate-500">Check back shortly for available products.</p>
             </div>
           )}
         </div>
       </section>
 
-      <section id="how-it-works" className="scroll-mt-24 border-y border-black/[0.06] bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-2xl">
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-moss-600">No surprises</p>
-            <h2 className="mt-2 font-display text-3xl font-extrabold tracking-[-0.05em] sm:text-4xl">
-              From product to plan in three clear steps.
-            </h2>
-          </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+      {/* ── How It Works ────────────────────────── */}
+      <section id="how-it-works" className="scroll-mt-24 border-t border-slate-100 bg-slate-50 px-4 py-12 sm:px-8 sm:py-16 lg:px-10">
+        <div className="mx-auto max-w-[1440px]">
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand-600">No surprises</p>
+          <h2 className="mt-2 font-display text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+            From product to plan in 3 clear steps
+          </h2>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {[
-              {
-                icon: BadgeCheck,
-                step: '01',
-                title: 'Choose your configuration',
-                text: 'Select the storage and finish that fits, with live availability and exact pricing.',
-              },
-              {
-                icon: CreditCard,
-                step: '02',
-                title: 'Compare EMI plans',
-                text: 'Review monthly payments, tenure, interest, fees and cashback side by side.',
-              },
-              {
-                icon: ShieldCheck,
-                step: '03',
-                title: 'Confirm with confidence',
-                text: 'See one final transparent summary before confirming the safe demo checkout.',
-              },
-            ].map(({ icon: Icon, step, title, text }) => (
-              <article key={step} className="rounded-3xl bg-canvas p-6 sm:p-7">
-                <div className="flex items-center justify-between">
-                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-ink text-white">
-                    <Icon size={20} />
-                  </span>
-                  <span className="font-display text-xl font-extrabold text-ink/15">{step}</span>
-                </div>
-                <h3 className="mt-6 font-display text-xl font-extrabold tracking-tight">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-ink/55">{text}</p>
+              { step: '01', title: 'Choose your configuration', text: 'Select storage and color that fits — see live price, availability and EMI.' },
+              { step: '02', title: 'Compare EMI plans', text: 'Review monthly payment, tenure, interest, fees and cashback side by side.' },
+              { step: '03', title: 'Confirm with confidence', text: 'See one final transparent summary before confirming the demo checkout.' },
+            ].map(({ step, title, text }) => (
+              <article key={step} className="rounded-xl border border-slate-200 bg-white p-6">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white">
+                  {step}
+                </span>
+                <h3 className="mt-4 font-display text-lg font-bold text-slate-900">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500">{text}</p>
               </article>
             ))}
           </div>

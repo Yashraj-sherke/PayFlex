@@ -4,10 +4,14 @@ import { calculateEmi, calculateTotalPayable } from '../src/shared/emi.js';
 import type {
   CheckoutIntentDto,
   CheckoutIntentInput,
+  CustomerReviewDto,
   EmiPlanDto,
+  PolicyDto,
   ProductDetailDto,
+  ProductRatingDto,
   ProductSummaryDto,
   ProductVariantDto,
+  SpecificationDto,
 } from '../src/shared/types.js';
 import { Product, type IEmiPlan, type IProduct, type IProductVariant } from './models/product.js';
 
@@ -21,10 +25,7 @@ export interface CatalogService {
   createCheckoutIntent(input: CheckoutIntentInput): Promise<CheckoutIntentDto>;
 }
 
-function toPlan(
-  price: number,
-  plan: IEmiPlan,
-): EmiPlanDto {
+function toPlan(price: number, plan: IEmiPlan): EmiPlanDto {
   const monthlyPayment = calculateEmi({
     principal: price,
     annualInterestRate: plan.interestRate,
@@ -38,18 +39,11 @@ function toPlan(
     cashbackAmount: plan.cashbackAmount,
     processingFee: plan.processingFee,
     monthlyPayment,
-    totalPayable: calculateTotalPayable(
-      monthlyPayment,
-      plan.tenureMonths,
-      plan.processingFee,
-    ),
+    totalPayable: calculateTotalPayable(monthlyPayment, plan.tenureMonths, plan.processingFee),
   };
 }
 
-function toVariant(
-  basePrice: number,
-  variant: IProductVariant,
-): ProductVariantDto {
+function toVariant(basePrice: number, variant: IProductVariant): ProductVariantDto {
   return {
     id: variant._id.toString(),
     color: variant.color,
@@ -61,6 +55,53 @@ function toVariant(
     inventory: variant.inventory,
     price: basePrice + variant.priceAdjustment,
   };
+}
+
+function toRatingDto(product: IProduct): ProductRatingDto {
+  const r = product.rating ?? {};
+  return {
+    aggregateRating:        r.aggregateRating ?? 0,
+    aggregateRatingDisplay: r.aggregateRatingDisplay ?? '0.0',
+    aggregateRatingTag:     r.aggregateRatingTag ?? '',
+    totalRatings:           r.totalRatings ?? 0,
+    totalReviews:           r.totalReviews ?? 0,
+    noOfUnitsSold:          r.noOfUnitsSold ?? 0,
+    noOfUnitsSoldDisplay:   r.noOfUnitsSoldDisplay ?? '0 sold',
+    fiveStarPercent:        r.fiveStarPercent ?? 0,
+    fourStarPercent:        r.fourStarPercent ?? 0,
+    threeStarPercent:       r.threeStarPercent ?? 0,
+    twoStarPercent:         r.twoStarPercent ?? 0,
+    oneStarPercent:         r.oneStarPercent ?? 0,
+  };
+}
+
+function toReviewDtos(product: IProduct): CustomerReviewDto[] {
+  return (product.reviews ?? []).map((r) => ({
+    id:           r.id,
+    rating:       r.rating,
+    title:        r.title,
+    body:         r.body,
+    reviewer:     r.reviewer,
+    city:         r.city,
+    verified:     r.verified,
+    daysAgo:      r.daysAgo,
+    variantLabel: r.variantLabel,
+  }));
+}
+
+function toPolicyDtos(product: IProduct): PolicyDto[] {
+  return (product.policies ?? []).map((p) => ({
+    icon:        p.icon,
+    label:       p.label,
+    description: p.description,
+  }));
+}
+
+function toSpecDtos(product: IProduct): SpecificationDto[] {
+  return (product.specifications ?? []).map((s) => ({
+    label: s.label,
+    value: s.value,
+  }));
 }
 
 function activePlans(product: IProduct): IEmiPlan[] {
@@ -103,6 +144,8 @@ export function createMongooseCatalogService(): CatalogService {
           startingMonthlyPayment,
           hasZeroInterest: plans.some((plan) => plan.interestRate === 0),
           variantCount: product.variants.length,
+          sellerName: product.sellerName ?? '',
+          rating: toRatingDto(product),
         };
       });
     },
@@ -128,8 +171,13 @@ export function createMongooseCatalogService(): CatalogService {
         category: product.category,
         basePrice: product.basePrice,
         mrp: product.mrp,
+        sellerName: product.sellerName ?? '',
         variants,
         emiPlans: plans.map((plan) => toPlan(defaultPrice, plan)),
+        specifications: toSpecDtos(product),
+        rating: toRatingDto(product),
+        reviews: toReviewDtos(product),
+        policies: toPolicyDtos(product),
       };
     },
 

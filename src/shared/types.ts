@@ -49,6 +49,46 @@ export interface ProductSummaryDto {
   startingMonthlyPayment: number | null;
   hasZeroInterest: boolean;
   variantCount: number;
+  sellerName: string;
+  rating: ProductRatingDto;
+}
+
+export interface SpecificationDto {
+  label: string;
+  value: string;
+}
+
+export interface ProductRatingDto {
+  aggregateRating: number;
+  aggregateRatingDisplay: string;
+  aggregateRatingTag: string;
+  totalRatings: number;
+  totalReviews: number;
+  noOfUnitsSold: number;
+  noOfUnitsSoldDisplay: string;
+  fiveStarPercent: number;
+  fourStarPercent: number;
+  threeStarPercent: number;
+  twoStarPercent: number;
+  oneStarPercent: number;
+}
+
+export interface CustomerReviewDto {
+  id: string;
+  rating: number;
+  title: string;
+  body: string;
+  reviewer: string;
+  city: string;
+  verified: boolean;
+  daysAgo: number;
+  variantLabel: string;
+}
+
+export interface PolicyDto {
+  icon: string;
+  label: string;
+  description: string;
 }
 
 export interface ProductDetailDto {
@@ -61,8 +101,13 @@ export interface ProductDetailDto {
   category: string;
   basePrice: number;
   mrp: number;
+  sellerName: string;
   variants: ProductVariantDto[];
   emiPlans: EmiPlanDto[];
+  specifications: SpecificationDto[];
+  rating: ProductRatingDto;
+  reviews: CustomerReviewDto[];
+  policies: PolicyDto[];
 }
 
 export interface CheckoutIntentInput {

@@ -36,23 +36,25 @@ export function createApp(dependencies: AppDependencies = {}) {
   );
   app.use(express.json({ limit: '20kb' }));
 
-  app.get('/api/health', (_request, response) => {
+  const apiRouter = express.Router();
+
+  apiRouter.get('/health', (_request, response) => {
     response.json({ success: true, data: { status: 'ok' } });
   });
 
-  app.get('/api/products', async (_request, response) => {
+  apiRouter.get('/products', async (_request, response) => {
     const products = await catalogService.listProducts();
     response.json({ success: true, data: products });
   });
 
-  app.get('/api/products/:slug/emi-plans', async (request, response) => {
+  apiRouter.get('/products/:slug/emi-plans', async (request, response) => {
     const slug = slugSchema.parse(firstParam(request.params.slug));
     const query = emiPlanQuerySchema.parse(request.query);
     const plans = await catalogService.getEmiPlans(slug, query.variantId);
     response.json({ success: true, data: plans });
   });
 
-  app.get('/api/products/:slug', async (request, response) => {
+  apiRouter.get('/products/:slug', async (request, response) => {
     const slug = slugSchema.parse(firstParam(request.params.slug));
     const product = await catalogService.getProduct(slug);
 
@@ -67,11 +69,14 @@ export function createApp(dependencies: AppDependencies = {}) {
     response.json({ success: true, data: product });
   });
 
-  app.post('/api/checkout/intent', async (request, response) => {
+  apiRouter.post('/checkout/intent', async (request, response) => {
     const input = checkoutIntentSchema.parse(request.body);
     const intent = await catalogService.createCheckoutIntent(input);
     response.status(201).json({ success: true, data: intent });
   });
+
+  app.use('/api', apiRouter);
+  app.use('/', apiRouter);
 
   app.use((_request, response) => {
     response.status(404).json({

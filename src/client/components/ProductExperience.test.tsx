@@ -17,6 +17,7 @@ const product: ProductDetailDto = {
   category: 'Smartphones',
   basePrice: 127_400,
   mrp: 134_900,
+  sellerName: 'Test Store',
   variants: [
     {
       id: 'variant_1',
@@ -41,6 +42,26 @@ const product: ProductDetailDto = {
       totalPayable: 127_404,
     },
   ],
+  specifications: [
+    { label: 'Storage', value: '256 GB' },
+    { label: 'Color', value: 'Cosmic Orange' },
+  ],
+  rating: {
+    aggregateRating: 4.2,
+    aggregateRatingDisplay: '4.2',
+    aggregateRatingTag: 'Excellent',
+    totalRatings: 6,
+    totalReviews: 6,
+    noOfUnitsSold: 75,
+    noOfUnitsSoldDisplay: '70+ sold',
+    fiveStarPercent: 66.67,
+    fourStarPercent: 16.67,
+    threeStarPercent: 0,
+    twoStarPercent: 0,
+    oneStarPercent: 16.67,
+  },
+  reviews: [],
+  policies: [],
 };
 
 const intent: CheckoutIntentDto = {
