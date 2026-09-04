@@ -93,6 +93,13 @@ export function ProductExperience({ product }: ProductExperienceProps) {
     if (variantId === selectedVariantId) return;
     const previousTenure = selectedPlan?.tenureMonths ?? 12;
     setSelectedVariantId(variantId);
+
+    const newVariant = product.variants.find((v) => v.id === variantId);
+    if (newVariant) {
+      const newIndex = galleryItems.findIndex((item) => item.url === newVariant.imageUrl);
+      if (newIndex !== -1) setActiveImageIndex(newIndex);
+    }
+
     setPlansLoading(true);
     setErrorMessage(null);
     try {
