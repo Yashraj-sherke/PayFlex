@@ -200,8 +200,9 @@ const products = [
     mrp: 209_900,
     sellerName: 'Imagine Apple Store',
     variants: [
-      { color: 'Space Black', colorHex: '#252628', storage: '512GB SSD', finish: 'Anodized aluminum', imageUrl: '/products/macbook-pro.svg', priceAdjustment: 0, inventory: 10 },
-      { color: 'Silver',      colorHex: '#e2e8f0', storage: '1TB SSD',     finish: 'Anodized aluminum', imageUrl: '/products/macbook-pro.svg', priceAdjustment: 20_000, inventory: 7 },
+      { color: 'Space Black', colorHex: '#1e2022', storage: '512GB SSD', finish: 'Anodized aluminum', imageUrl: '/products/macbook-screen.png',   priceAdjustment: 0,      inventory: 10 },
+      { color: 'Silver',      colorHex: '#e2e8f0', storage: '1TB SSD',   finish: 'Anodized aluminum', imageUrl: '/products/macbook-lid.png',      priceAdjustment: 20_000, inventory: 7  },
+      { color: 'Magic Studio',colorHex: '#2b2d31', storage: '1TB SSD',   finish: 'Anodized aluminum', imageUrl: '/products/macbook-keyboard.png', priceAdjustment: 20_000, inventory: 5  },
     ],
     emiPlans: makePlans(8_000),
     specifications: [
