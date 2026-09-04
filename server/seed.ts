@@ -206,9 +206,9 @@ const products = [
     mrp: 149_900,
     sellerName: 'Balaji Infocom',
     variants: [
-      { color: 'Silver',       colorHex: '#C0C0C0', storage: '256GB', finish: 'Satin titanium', imageUrl: '/products/iphone-silver.svg', priceAdjustment: 0,      inventory: 8  },
-      { color: 'Cosmic Orange',colorHex: '#FFA500', storage: '256GB', finish: 'Satin titanium', imageUrl: '/products/iphone-orange.svg', priceAdjustment: 0,      inventory: 12 },
-      { color: 'Deep Navy',    colorHex: '#1E3A8A', storage: '512GB', finish: 'Satin titanium', imageUrl: '/products/iphone-navy.svg',   priceAdjustment: 20_000, inventory: 5  },
+      { color: 'Cosmic Orange',    colorHex: '#E6632B', storage: '256GB', finish: 'Satin titanium', imageUrl: '/products/iphone-orange.png',        priceAdjustment: 0,      inventory: 14 },
+      { color: 'Desert Titanium',  colorHex: '#C39B78', storage: '512GB', finish: 'Satin titanium', imageUrl: '/products/iphone-orange-front.png',  priceAdjustment: 15_000, inventory: 8  },
+      { color: 'Pro Camera Studio',colorHex: '#1E293B', storage: '1TB',   finish: 'Satin titanium', imageUrl: '/products/iphone-orange-camera.png', priceAdjustment: 35_000, inventory: 6  },
     ],
     emiPlans: standardPlans.map((plan) => ({ ...plan, isActive: true })),
     specifications: iPhoneSpecs,

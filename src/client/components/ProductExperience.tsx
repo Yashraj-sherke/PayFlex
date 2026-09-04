@@ -48,6 +48,23 @@ export function ProductExperience({ product }: ProductExperienceProps) {
   const [activeThumb, setActiveThumb] = useState(0);
   const [showAllSpecs, setShowAllSpecs] = useState(false);
   const [expandedPolicy, setExpandedPolicy] = useState<number | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  const isIPhone = product.slug === 'iphone-17-pro';
+  const iphoneGallery = useMemo(
+    () => [
+      { url: '/products/iphone-orange.png', label: 'Cosmic Orange · Front & Back' },
+      { url: '/products/iphone-orange-front.png', label: 'Super Retina XDR Display' },
+      { url: '/products/iphone-orange-camera.png', label: 'Pro Camera System' },
+      { url: '/products/iphone-orange-side.png', label: 'Sculpted Titanium Edge' },
+    ],
+    [],
+  );
+
+  const galleryItems = useMemo(() => {
+    if (isIPhone) return iphoneGallery;
+    return product.variants.map((v) => ({ url: v.imageUrl, label: v.color }));
+  }, [isIPhone, iphoneGallery, product.variants]);
 
   const selectedVariant = useMemo(
     () => product.variants.find((v) => v.id === selectedVariantId),
@@ -123,15 +140,20 @@ export function ProductExperience({ product }: ProductExperienceProps) {
           <div className="flex gap-3">
             {/* Vertical thumbnails (desktop) */}
             <div className="hidden flex-col gap-2 lg:flex">
-              {product.variants.map((v, i) => (
+              {galleryItems.map((item, i) => (
                 <button
-                  key={v.id}
+                  key={item.url}
                   type="button"
-                  onClick={() => { void selectVariant(v.id); setActiveThumb(i); }}
-                  aria-pressed={v.id === selectedVariantId}
-                  className={`pf-thumb ${v.id === selectedVariantId ? 'pf-thumb-active' : ''}`}
+                  onClick={() => {
+                    setActiveImageIndex(i);
+                    const matchingVariant = product.variants.find((v) => v.imageUrl === item.url);
+                    if (matchingVariant) void selectVariant(matchingVariant.id);
+                  }}
+                  aria-label={item.label}
+                  aria-pressed={i === activeImageIndex}
+                  className={`pf-thumb transition-all ${i === activeImageIndex ? 'pf-thumb-active ring-2 ring-brand-500 scale-105' : 'opacity-80 hover:opacity-100'}`}
                 >
-                  <ProductImage src={v.imageUrl} alt={v.color} className="h-full w-full object-contain" />
+                  <ProductImage src={item.url} alt={item.label} className="h-full w-full object-contain p-0.5" />
                 </button>
               ))}
             </div>
@@ -159,24 +181,30 @@ export function ProductExperience({ product }: ProductExperienceProps) {
               )}
 
               <ProductImage
-                src={selectedVariant.imageUrl}
+                key={galleryItems[activeImageIndex]?.url ?? selectedVariant.imageUrl}
+                src={galleryItems[activeImageIndex]?.url ?? selectedVariant.imageUrl}
                 alt={`${product.name} in ${selectedVariant.color}`}
-                className="aspect-square w-full animate-fade-up object-contain p-8 sm:p-14"
+                className="aspect-square w-full animate-fade-up object-contain p-6 sm:p-10"
               />
             </div>
           </div>
 
           {/* Mobile thumbs */}
           <div className="mt-3 flex gap-2 overflow-x-auto pb-1 lg:hidden">
-            {product.variants.map((v) => (
+            {galleryItems.map((item, i) => (
               <button
-                key={v.id}
+                key={item.url}
                 type="button"
-                onClick={() => void selectVariant(v.id)}
-                aria-pressed={v.id === selectedVariantId}
-                className={`pf-thumb ${v.id === selectedVariantId ? 'pf-thumb-active' : ''}`}
+                onClick={() => {
+                  setActiveImageIndex(i);
+                  const matchingVariant = product.variants.find((v) => v.imageUrl === item.url);
+                  if (matchingVariant) void selectVariant(matchingVariant.id);
+                }}
+                aria-label={item.label}
+                aria-pressed={i === activeImageIndex}
+                className={`pf-thumb ${i === activeImageIndex ? 'pf-thumb-active ring-2 ring-brand-500' : 'opacity-80'}`}
               >
-                <ProductImage src={v.imageUrl} alt={v.color} className="h-full w-full object-contain" />
+                <ProductImage src={item.url} alt={item.label} className="h-full w-full object-contain p-0.5" />
               </button>
             ))}
           </div>
