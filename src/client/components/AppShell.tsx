@@ -1,6 +1,7 @@
 import { Search, Store } from 'lucide-react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { PayFlexLogo, PayFlexBagIcon } from './PayFlexLogo.js';
 
 const CATEGORIES = [
   'Deals', 'Mobiles', 'Electronics', 'TV & Appliances',
@@ -20,16 +21,13 @@ const FOOTER_LINKS = {
 };
 
 export function BrandMark({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
-  const textClass = size === 'lg' ? 'text-2xl' : size === 'sm' ? 'text-lg' : 'text-xl';
   return (
     <Link
       to="/"
       className="group inline-flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
       aria-label="PayFlex home"
     >
-      <span className={`font-display font-extrabold tracking-tight text-slate-900 ${textClass}`}>
-        Pay<span className="text-brand-600">Flex</span>
-      </span>
+      <PayFlexLogo size={size} />
     </Link>
   );
 }
@@ -49,18 +47,17 @@ export function AppShell() {
       {/* ── Top Header ──────────────────────────────── */}
       <header className="pf-header">
         {/* Main nav row */}
-        <div className="mx-auto flex h-[60px] max-w-[1440px] items-center gap-4 px-4 sm:px-6 lg:px-10">
+        <div className="mx-auto flex h-[64px] max-w-[1440px] items-center gap-4 px-4 sm:px-6 lg:px-10">
           {/* Logo */}
           <BrandMark />
 
           {/* Search bar */}
           <form
             onSubmit={handleSearch}
-            className="relative hidden flex-1 sm:flex"
+            className="group relative hidden flex-1 sm:flex"
           >
-            <Search
-              size={16}
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+            <PayFlexBagIcon
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-6 w-6 transition-transform duration-200 group-focus-within:scale-110 drop-shadow-sm"
             />
             <input
               type="text"
@@ -68,8 +65,15 @@ export function AppShell() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search for mobiles, laptops, appliances..."
-              className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 py-2 pl-9 pr-4 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-400 focus:bg-white focus:ring-2 focus:ring-brand-100"
+              className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 py-2 pl-11 pr-10 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-400 focus:bg-white focus:ring-2 focus:ring-brand-100"
             />
+            <button
+              type="submit"
+              aria-label="Search"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 transition hover:text-slate-700"
+            >
+              <Search size={16} />
+            </button>
           </form>
 
           {/* Right actions */}
@@ -99,18 +103,24 @@ export function AppShell() {
 
         {/* Mobile search */}
         <div className="border-t border-slate-100 px-4 pb-2 pt-2 sm:hidden">
-          <form onSubmit={handleSearch} className="relative">
-            <Search
-              size={15}
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+          <form onSubmit={handleSearch} className="group relative">
+            <PayFlexBagIcon
+              className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 h-5 w-5 transition-transform duration-200 group-focus-within:scale-110"
             />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search mobiles, laptops..."
-              className="h-9 w-full rounded-lg border border-slate-200 bg-slate-50 pl-8 pr-3 text-sm text-slate-800 outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-100"
+              className="h-9 w-full rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-8 text-sm text-slate-800 outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-100"
             />
+            <button
+              type="submit"
+              aria-label="Search"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 text-slate-400"
+            >
+              <Search size={14} />
+            </button>
           </form>
         </div>
 

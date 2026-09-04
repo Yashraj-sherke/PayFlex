@@ -1,0 +1,121 @@
+import type { SVGProps } from 'react';
+
+export function PayFlexBagIcon({ className = 'h-8 w-8', ...props }: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+      {...props}
+    >
+      {/* Back handle */}
+      <path
+        d="M 50 38 C 46 20 50 9 60 8 C 68 7 73 18 73 36"
+        stroke="#23494e"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+        fill="none"
+      />
+      
+      {/* Front handle */}
+      <path
+        d="M 39 41 C 34 22 39 10 50 9 C 59 9 64 21 63 39"
+        stroke="#285358"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+        fill="none"
+      />
+
+      {/* 3D Side shadow panel */}
+      <polygon
+        points="74,37 87,74 65,85"
+        fill="#1a383c"
+      />
+
+      {/* Bag front panel */}
+      <polygon
+        points="38,41 74,37 65,85 25,75"
+        fill="#264e52"
+      />
+
+      {/* Rim top highlight */}
+      <line
+        x1="38"
+        y1="41"
+        x2="74"
+        y2="37"
+        stroke="#33676c"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+
+      {/* Brush Stroke 1 (Top - Warm Cream) */}
+      <path
+        d="M 38 54 Q 50 53 64 52 C 68 51.5 73 50.5 75 51.5 C 72 53 69 53.5 63 54.5 Q 49 55.5 38 56.5 C 36.5 56.5 36.5 54 38 54 Z"
+        fill="#faebd7"
+      />
+      <circle cx="75" cy="51" r="0.8" fill="#faebd7" />
+      <circle cx="73" cy="53" r="0.7" fill="#faebd7" />
+
+      {/* Brush Stroke 2 (Middle - Warm Orange) */}
+      <path
+        d="M 37 59.5 Q 50 58.5 64 57.5 C 69 57 74 56 76 57 C 73 58.5 70 59 63 60.2 Q 48 61.2 37 62 C 35.5 62 35.5 59.5 37 59.5 Z"
+        fill="#fca566"
+      />
+      <circle cx="76" cy="56.5" r="0.8" fill="#fca566" />
+      <circle cx="74" cy="59" r="0.7" fill="#fca566" />
+
+      {/* Brush Stroke 3 (Bottom - Coral Red) */}
+      <path
+        d="M 36 65 Q 49 64 61 63 C 66 62.5 71 61.8 73 63 C 70 64.5 66 65 59 66.2 Q 47 67.2 36 68 C 34.5 68 34.5 65 36 65 Z"
+        fill="#ea583b"
+      />
+      <circle cx="72" cy="62" r="0.8" fill="#ea583b" />
+      <circle cx="70" cy="65" r="0.7" fill="#ea583b" />
+    </svg>
+  );
+}
+
+export function PayFlexLogo({
+  variant = 'horizontal',
+  size = 'md',
+  className = '',
+}: {
+  variant?: 'horizontal' | 'stacked';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+}) {
+  const iconSizes = {
+    sm: 'h-7 w-7',
+    md: 'h-9 w-9',
+    lg: 'h-12 w-12',
+  };
+
+  const textSizes = {
+    sm: 'text-lg',
+    md: 'text-xl',
+    lg: 'text-2xl',
+  };
+
+  if (variant === 'stacked') {
+    return (
+      <div className={`inline-flex flex-col items-center gap-1 ${className}`}>
+        <PayFlexBagIcon className={iconSizes[size]} />
+        <span className={`font-display font-extrabold tracking-tight text-slate-900 ${textSizes[size]}`}>
+          Pay<span className="text-[#f06449]">Flex</span>
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`inline-flex items-center gap-2.5 ${className}`}>
+      <PayFlexBagIcon className={`${iconSizes[size]} transition-transform duration-200 group-hover:scale-105`} />
+      <span className={`font-display font-extrabold tracking-tight text-slate-900 ${textSizes[size]}`}>
+        Pay<span className="text-[#f06449]">Flex</span>
+      </span>
+    </div>
+  );
+}

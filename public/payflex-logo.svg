@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" fill="none">
+  <g transform="translate(10, 0)">
+    <!-- Back handle -->
+    <path
+      d="M 46 32 C 43 16 47 7 55 6 C 62 5 66 14 66 30"
+      stroke="#23494e"
+      stroke-width="3"
+      stroke-linecap="round"
+      fill="none"
+    />
+    
+    <!-- Front handle -->
+    <path
+      d="M 37 35 C 33 18 37 8 46 7 C 54 7 58 17 58 33"
+      stroke="#285358"
+      stroke-width="3"
+      stroke-linecap="round"
+      fill="none"
+    />
+
+    <!-- 3D Side shadow panel -->
+    <polygon
+      points="67,31 78,63 59,73"
+      fill="#1a383c"
+    />
+
+    <!-- Bag front panel -->
+    <polygon
+      points="36,35 67,31 59,73 24,64"
+      fill="#264e52"
+    />
+
+    <!-- Rim highlight -->
+    <line
+      x1="36"
+      y1="35"
+      x2="67"
+      y2="31"
+      stroke="#33676c"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    />
+
+    <!-- Brush Stroke 1 -->
+    <path
+      d="M 35 46 Q 45 45 57 44 C 61 43.5 65 42.5 67 43.5 C 64 45 61 45.5 56 46.5 Q 44 47.5 35 48.5 Z"
+      fill="#faebd7"
+    />
+
+    <!-- Brush Stroke 2 -->
+    <path
+      d="M 34 51 Q 45 50 57 49 C 61 48.5 65 47.8 67 48.8 C 64 50 61 50.8 55 51.8 Q 43 52.8 34 53.5 Z"
+      fill="#fca566"
+    />
+
+    <!-- Brush Stroke 3 -->
+    <path
+      d="M 33 56 Q 44 55 55 54 C 59 53.5 63 52.8 65 54 C 62 55.5 58 56 52 57 Q 42 58 33 59 Z"
+      fill="#ea583b"
+    />
+  </g>
+
+  <!-- Typography -->
+  <text x="102" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="900" fill="#111827" letter-spacing="-1">Pay</text>
+  <text x="156" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="900" fill="#f06449" letter-spacing="-1">Flex</text>
+</svg>
