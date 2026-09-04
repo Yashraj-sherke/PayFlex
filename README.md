@@ -51,7 +51,7 @@ Browser (React + Vite)
 - `server`: Express 5 app, route validation schemas, Mongoose models, and catalog service.
 - `src/shared`: Shared TypeScript types/contracts and canonical EMI calculation formula.
 - `server/models`: Normalized Mongoose schemas with embedded variants and EMI plans.
-- `server/seed.ts`: Seed script populating 3 products with 7 variants and comprehensive EMI tenures.
+- `server/seed.ts`: Seed script populating 25 products across 9 categories with comprehensive variants, specifications, ratings, reviews, and EMI tenures.
 - `public/products`: High-resolution SVG product artwork.
 
 ---
@@ -303,7 +303,7 @@ Health check endpoint returning `{ "success": true, "data": { "status": "ok" } }
    ```bash
    npm run db:seed
    ```
-   This inserts 3 flagship smartphone products, 7 variants, and full EMI plans into MongoDB.
+   This inserts 25 products across 9 categories (Mobiles, Electronics, TV & Appliances, Kitchen & Home, Health & Wellness, Fashion, Baby & Kids, Sports & Fitness) with complete variants, specifications, ratings, reviews, and EMI plans into MongoDB.
 
 5. **Start the development servers:**
    ```bash

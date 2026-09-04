@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express, { type ErrorRequestHandler } from 'express';
+import rateLimit from 'express-rate-limit';
 import { ZodError } from 'zod';
 import {
   createMongooseCatalogService,
@@ -36,6 +37,29 @@ export function createApp(dependencies: AppDependencies = {}) {
   );
   app.use(express.json({ limit: '20kb' }));
 
+  /* ---------- Rate limiting ---------- */
+  const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,   // 15 minutes
+    max: 100,                    // 100 requests per window per IP
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+      success: false,
+      error: { code: 'RATE_LIMITED', message: 'Too many requests. Please try again later.' },
+    },
+  });
+
+  const checkoutLimiter = rateLimit({
+    windowMs: 60 * 1000,         // 1 minute
+    max: 10,                     // 10 checkout attempts per minute per IP
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+      success: false,
+      error: { code: 'RATE_LIMITED', message: 'Too many checkout attempts. Please wait a moment.' },
+    },
+  });
+
   const apiRouter = express.Router();
 
   apiRouter.get('/health', (_request, response) => {
@@ -71,14 +95,14 @@ export function createApp(dependencies: AppDependencies = {}) {
     response.json({ success: true, data: product });
   });
 
-  apiRouter.post('/checkout/intent', async (request, response) => {
+  apiRouter.post('/checkout/intent', checkoutLimiter, async (request, response) => {
     const input = checkoutIntentSchema.parse(request.body);
     const intent = await catalogService.createCheckoutIntent(input);
     response.status(201).json({ success: true, data: intent });
   });
 
-  app.use('/api', apiRouter);
-  app.use('/', apiRouter);
+  app.use('/api', apiLimiter, apiRouter);
+  app.use('/', apiLimiter, apiRouter);
 
   app.use((_request, response) => {
     response.status(404).json({

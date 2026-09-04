@@ -430,8 +430,8 @@ const products = [
     mrp: 22_999,
     sellerName: 'Nespresso Boutique India',
     variants: [
-      { color: 'Mango Yellow',    colorHex: '#f59e0b', storage: 'Compact Pop', finish: 'Vibrant gloss', imageUrl: '/products/nespresso.svg', priceAdjustment: 0, inventory: 20 },
-      { color: 'Liquorice Black', colorHex: '#0f172a', storage: 'Compact Pop', finish: 'Matte black',   imageUrl: '/products/nespresso.svg', priceAdjustment: 0, inventory: 25 },
+      { color: 'Mango Yellow',    colorHex: '#f59e0b', storage: 'Compact Pop', finish: 'Vibrant gloss', imageUrl: '/products/nespresso-vertuo-pop.png', priceAdjustment: 0, inventory: 20 },
+      { color: 'Liquorice Black', colorHex: '#0f172a', storage: 'Compact Pop', finish: 'Matte black',   imageUrl: '/products/nespresso-vertuo-pop.png', priceAdjustment: 0, inventory: 25 },
     ],
     emiPlans: makePlans(1_200),
     specifications: [

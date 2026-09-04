@@ -29,6 +29,8 @@ export function CatalogPage() {
     ? 'Hot Deals on EMI'
     : `${categoryParam || 'Flagship Products'} on EMI`;
 
+  const showHero = categoryParam === 'Mobiles' && !searchQuery;
+
   useDocumentMetadata(
     `PayFlex | ${headingTitle}`,
     'Browse premium products across all categories with transparent EMI prices, zero-interest options and flexible monthly payments.',
@@ -60,7 +62,8 @@ export function CatalogPage() {
   return (
     <>
       {/* ── Hero Banner ──────────────────────────── */}
-      <section className="relative overflow-hidden bg-slate-900 px-4 pb-14 pt-12 sm:px-8 sm:pb-16 sm:pt-14 lg:px-16">
+      {showHero && (
+        <section className="relative overflow-hidden bg-slate-900 px-4 pb-14 pt-12 sm:px-8 sm:pb-16 sm:pt-14 lg:px-16">
         {/* Decorative orbs */}
         <div className="hero-orb hero-orb-one" />
         <div className="hero-orb hero-orb-two" />
@@ -107,6 +110,7 @@ export function CatalogPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── Product Grid ─────────────────────────── */}
       <section id="products" className="scroll-mt-24 px-4 py-10 sm:px-8 sm:py-14 lg:px-10">
