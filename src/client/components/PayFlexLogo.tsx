@@ -105,24 +105,18 @@ export function PayFlexLogo({
   size?: 'sm' | 'md' | 'lg';
   className?: string;
 }) {
-  const iconSizes = {
-    sm: 'h-8 w-8',
-    md: 'h-11 w-11',
-    lg: 'h-14 w-14',
-  };
-
-  const textSizes = {
-    sm: 'text-xl',
-    md: 'text-2xl',
-    lg: 'text-3xl',
+  const heights = {
+    sm: 'h-8',
+    md: 'h-11',
+    lg: 'h-14',
   };
 
   return (
-    <div className={`inline-flex items-center gap-3 ${className}`}>
-      <PayFlexBagIcon className={`${iconSizes[size]} shrink-0 transition-transform duration-200 group-hover:scale-105`} />
-      <span className={`font-display font-extrabold tracking-tight text-[#0f172a] ${textSizes[size]}`}>
-        Pay<span className="text-[#f06449]">Flex</span>
-      </span>
-    </div>
+    <img
+      src="/payflex-logo.png"
+      alt="PayFlex"
+      className={`${heights[size]} w-auto max-w-none object-contain transition-transform duration-200 group-hover:scale-105 select-none ${className}`}
+      loading="eager"
+    />
   );
 }
