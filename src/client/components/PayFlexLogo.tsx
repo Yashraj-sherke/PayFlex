@@ -106,9 +106,9 @@ export function PayFlexLogo({
   className?: string;
 }) {
   const heights = {
-    sm: 'h-8',
-    md: 'h-11',
-    lg: 'h-14',
+    sm: 'h-9',
+    md: 'h-[50px] sm:h-[54px]',
+    lg: 'h-16 sm:h-[68px]',
   };
 
   return (

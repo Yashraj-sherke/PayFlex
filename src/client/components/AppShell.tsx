@@ -63,7 +63,7 @@ export function AppShell() {
       {/* ── Top Header ──────────────────────────────── */}
       <header className="pf-header">
         {/* Main nav row */}
-        <div className="mx-auto flex h-[68px] max-w-[1440px] items-center gap-5 px-4 sm:px-6 lg:px-10">
+        <div className="mx-auto flex h-[72px] sm:h-[76px] max-w-[1440px] items-center gap-5 px-4 sm:px-6 lg:px-10">
           {/* Logo */}
           <BrandMark />
 
